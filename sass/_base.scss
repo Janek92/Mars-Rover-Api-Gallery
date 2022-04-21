@@ -1,0 +1,78 @@
+*,*:before,*:after{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper{
+  max-width: 1600px;
+  min-width: 280px;
+  margin:0 auto;
+  position: absolute;
+  top: 100%;
+}
+
+$xsmall: 'min-width:460px';
+$small: 'min-width:640px';
+$medium: 'min-width:800px';
+$large: 'min-width:1024px';
+$xlarge: 'min-width:1200px';
+$xxlarge: 'min-width:1400px';
+
+$chakra-petch: 'Chakra Petch', sans-serif;
+//300, 400, 500, 600, 700
+$montserrat: 'Montserrat', sans-serif;
+//100, 200, 300, 400, 500, 700
+$font-titles: 40px;
+$font-text: 16px;
+
+//mixins
+@mixin btn($font:$montserrat, $color:#fff, $font-size:0.8*$font-text, $font-letters: uppercase, $margin-values:5px 1px, $bgc-col:#000, $border-params:2px solid rgb(0, 255, 221), $border-rad:5px, $transition:0.15s){
+  outline:none;
+  font-family: $font;
+  color: $color;
+  font-size: $font-size;
+  text-transform: $font-letters;
+  margin: $margin-values;
+  background-color: $bgc-col;
+  border: $border-params;
+  border-radius:$border-rad;
+  transition: $transition;
+  @content;
+}
+
+@mixin titles-after($width, $height:2px, $bgc-col:#fff, $vertical:100%, $horizontal:0){
+  content:"";
+  width: $width;
+  height:$height;
+  background-color: $bgc-col;
+  position: absolute;
+  top:$vertical;
+  left:$horizontal;
+  @content;
+}
+
+@mixin wrapper-sections($width:100%, $padding:null, $txt-al:null,$color:#fff,){
+  width: $width;
+  padding: $padding;
+  text-align: $txt-al;
+  color: $color;
+  @content;
+}
+
+@mixin interface-h3($pos: relative, $font-size: 0.5*$font-titles, $font-letters: uppercase, $margin-values: 15px 0){
+  position: $pos;
+  font-size:$font-size;
+  text-transform: $font-letters;
+  margin:$margin-values;
+  @content;
+}

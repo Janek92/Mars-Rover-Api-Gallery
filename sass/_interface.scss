@@ -1,0 +1,175 @@
+.interface{
+  @include  wrapper-sections(){
+  font-weight: 400;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(0, 0, 0);
+  }
+  &__chose-rover{
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    h3{
+      @include interface-h3(){
+        grid-column: 1/-1;
+        grid-row: 1/2;
+      };
+    }
+    button{
+      @include btn();
+    }
+    button:focus{
+      box-shadow: inset 0 0 3px 1px rgb(0, 255, 221);
+    }
+    button:active{
+      border-width: 3px;
+      font-size: 0.85*$font-text;
+    }
+    .curiosity{
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .opportunity{
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .spirit{
+      grid-column: 3/4;
+      grid-row: 2/3;
+    }
+    .pointed{
+      background-color: #333;
+    }
+    h3::after{
+      @include titles-after($width:50%);
+    }
+  }
+  &__date-type {
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    display: none;
+    h3{
+      @include interface-h3(){
+        grid-column: 1/-1;
+        grid-row: 1/2;
+      };
+    }
+    button{
+      @include btn();
+    }
+    button:focus{
+      box-shadow: inset 0 0 3px 1px rgb(0, 255, 221);
+    }
+    button:active{
+      border-width: 3px;
+      font-size: 0.85*$font-text;
+    }
+    .earth_date{
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .sol{
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .pointed{
+      background-color: #333;
+    }
+    h3::after{
+      @include titles-after($width: 75%);
+    }
+  }
+  &__date-format {
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    display: none;
+    h3{
+      @include interface-h3(){
+        grid-column: 1/-1;
+        grid-row: 1/2;
+      };
+    }
+    h3::after{
+      @include titles-after($width: 100%);
+    }
+    input{
+      grid-column: 1/-1;
+      grid-row: 2/3;
+      outline: none;
+      border:2px solid rgb(0, 255, 221);
+      border-radius:5px;
+      transition:0.15s;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: $montserrat;
+      position: relative;
+      color: #fff;
+      background-color: #000;
+    }
+    input::-webkit-calendar-picker-indicator{
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      filter: invert(100%);
+    }
+    input:focus{
+      box-shadow: inset 0 0 5px 1px rgb(0, 255, 221);
+    }
+
+  }
+  &__sol-format {
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    display: none;
+    h3{
+      @include interface-h3(){
+        grid-column: 1/-1;
+        grid-row: 1/2;
+      };
+    }
+    h3::after{
+      @include titles-after($width: 95%);
+    }
+    
+    input[type="number"]{
+      @include btn($font-size:0.9*$font-text){
+        grid-column: 1/-1;
+        grid-row: 2/3;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+    input[type="submit"]{
+      @include btn($font-size:0.9*$font-text){
+        grid-column: 1/-1;
+        grid-row: 3/4;
+      };
+    }
+    input:focus{
+      box-shadow: inset 0 0 5px 1px rgb(0, 255, 221);
+    }
+    input:focus::placeholder{
+      transition:0.35s;
+      transform: scale(0);
+    }
+    input:active{
+      border-width: 3px;
+      font-size: 0.85*$font-text;
+    }
+  }
+  
+}

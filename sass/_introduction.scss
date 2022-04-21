@@ -1,0 +1,16 @@
+.introduction{
+  @include wrapper-sections($padding:10px 5px,$txt-al:center){
+  font-weight: 200;
+  background: linear-gradient(rgba(0, 0, 0, 0.856)),url('../images/mars2_1263.jpg');
+  background-size: cover;
+  }
+  &__text{
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+h2{
+  font-size:0.6*$font-titles;
+  text-transform: uppercase;
+  padding: 12px 0;
+}
+}
