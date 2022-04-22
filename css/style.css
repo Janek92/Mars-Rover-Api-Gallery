@@ -27,6 +27,55 @@ body {
   top: 100%;
 }
 
+.menu {
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+  z-index: 2;
+  background-color: rgba(35, 8, 0, 0.911);
+  color: #fff;
+  -webkit-transition: .5;
+  transition: .5;
+}
+
+.menu__title {
+  margin: 20px 10px;
+  font-size: 24px;
+}
+
+.menu__list {
+  list-style: none;
+  margin: 20px 10px;
+  font-size: 20.8px;
+  text-transform: capitalize;
+}
+
+.menu__list li {
+  margin: 10px 10px;
+}
+
+.menu__burger {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+}
+
+.menu__burger .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scaleY(0.9);
+          transform: translate(-50%, -50%) scaleY(0.9);
+  font-size: 45px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
+
 .welcome {
   position: fixed;
   z-index: -1;

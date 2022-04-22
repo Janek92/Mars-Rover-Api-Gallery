@@ -144,6 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.welcome');
   const wrapper = document.querySelector('.wrapper');
   let opacityLevel;
+  const burger = document.querySelector('.menu__burger');
+  const fa = burger.querySelector('.fa');
+  const nav = document.querySelector('.menu');
+
+
   //Obrazek tła headera ładowany w zależności od width
   const reportWindowSize = () => {
     if (window.innerWidth <= 1280) {
@@ -160,10 +165,27 @@ document.addEventListener('DOMContentLoaded', () => {
     header.style.opacity = `${100 - opacityLevel}%`;
     wrapper.style.opacity = `${opacityLevel}%`;
   }
-
-
+  const switchBurgerIcon = () => {
+    if (fa.classList.contains('fa-bars')) {
+      // nav.style.transform = 'translate(0, 0)';
+      fa.classList.remove('fa-bars');
+      fa.classList.add('fa-times');
+    } else {
+      // nav.style.transform = 'translate(0, -100%)';
+      fa.classList.remove('fa-times');
+      fa.classList.add('fa-bars');
+    }
+    fa.style.transform = 'translate(-50%, -50%) scaleY(0.9)';
+  }
+  const toggleMenu = () => {
+    // nav.style.transform = 'translateY(0px)';
+    fa.style.transform = 'translate(-50%, -50%) scaleY(0.0)';
+    // fa.classList.contains('fa-bars') ? nav.style.transform = 'translateY(0%)' : nav.style.transform = 'translateY(-100%)';
+    setTimeout(switchBurgerIcon, 350);
+  }
 
   reportWindowSize();
+  burger.addEventListener('click', toggleMenu);
   window.addEventListener('resize', reportWindowSize);
   window.addEventListener('scroll', hideHeader);
 });
