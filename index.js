@@ -104,7 +104,8 @@ class SetUrl {
     for (let i = 0; i < nr; i++) {
       if (value % 40 == 0) {
         let section = document.createElement('section');
-        section.innerHTML = "<h4>show/hide images</h4>";
+        // section.innerHTML = "<h4>show/hide images</h4>";
+        section.innerHTML = "<button>show/hide images</button>";
         gallery.appendChild(section);
         let div = document.createElement('div');
         i < 40 ? div.style.height = "auto" : div.style.height = "0";
@@ -127,7 +128,8 @@ class SetUrl {
     // console.log(data.photos[0].earth_date);
   }
   hidingShowingImg(e) {
-    if (e.target.localName === 'h4') {
+    // if (e.target.localName === 'h4') {
+    if (e.target.localName === 'button') {
       let div = e.target.parentElement.querySelector('div');
       if (div.style.height === '0px') {
         div.style.height = 'auto';
@@ -157,35 +159,45 @@ document.addEventListener('DOMContentLoaded', () => {
       header.style.backgroundImage = "url('./images/mars1_1920.jpg')";
     }
   }
-
+  const headerWrapperBlur = (value) => {
+    header.style.filter = `blur(${value}px)`;
+    wrapper.style.filter = `blur(${value}px)`;
+  }
   //Znikający header i pojawiający się wrapper
   const hideHeader = () => {
     opacityLevel = Math.round(((wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
     opacityLevel >= 100 ? opacityLevel = 100 : opacityLevel;
     header.style.opacity = `${100 - opacityLevel}%`;
     wrapper.style.opacity = `${opacityLevel}%`;
+    //Pozycja burgera względem przewinięcia strony
+    if (opacityLevel >= '30') {
+      nav.style.transform = 'translateY(-100%)';
+      fa.classList.remove('fa-times');
+      fa.classList.add('fa-bars');
+    } else if (opacityLevel < '30') {
+      nav.style.transform = 'translateY(-130%)';
+    }
+    headerWrapperBlur(0);
   }
   const switchBurgerIcon = () => {
     if (fa.classList.contains('fa-bars')) {
-      // nav.style.transform = 'translate(0, 0)';
+      nav.style.transform = 'translateY(0%)';
       fa.classList.remove('fa-bars');
       fa.classList.add('fa-times');
+      headerWrapperBlur(3);
     } else {
-      // nav.style.transform = 'translate(0, -100%)';
+      nav.style.transform = 'translateY(-100%)';
       fa.classList.remove('fa-times');
       fa.classList.add('fa-bars');
+      headerWrapperBlur(0);
     }
     fa.style.transform = 'translate(-50%, -50%) scaleY(0.9)';
   }
   const toggleMenu = () => {
-    // nav.style.transform = 'translateY(0px)';
     fa.style.transform = 'translate(-50%, -50%) scaleY(0.0)';
-    // fa.classList.contains('fa-bars') ? nav.style.transform = 'translateY(0%)' : nav.style.transform = 'translateY(-100%)';
     setTimeout(switchBurgerIcon, 350);
   }
 
-  reportWindowSize();
   burger.addEventListener('click', toggleMenu);
-  window.addEventListener('resize', reportWindowSize);
   window.addEventListener('scroll', hideHeader);
 });

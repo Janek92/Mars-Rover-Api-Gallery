@@ -22,7 +22,7 @@
       @include btn();
     }
     button:focus{
-      box-shadow: inset 0 0 3px 1px rgb(0, 255, 221);
+      box-shadow: inset 0 0 3px 1px rgb(255, 128, 0);
     }
     button:active{
       border-width: 3px;
@@ -64,7 +64,7 @@
       @include btn();
     }
     button:focus{
-      box-shadow: inset 0 0 3px 1px rgb(0, 255, 221);
+      box-shadow: inset 0 0 3px 1px rgb(255, 128, 0);
     }
     button:active{
       border-width: 3px;
@@ -105,7 +105,7 @@
       grid-column: 1/-1;
       grid-row: 2/3;
       outline: none;
-      border:2px solid rgb(0, 255, 221);
+      border:2px solid rgb(255, 128, 0);
       border-radius:5px;
       transition:0.15s;
       text-align: center;
@@ -124,7 +124,7 @@
       filter: invert(100%);
     }
     input:focus{
-      box-shadow: inset 0 0 5px 1px rgb(0, 255, 221);
+      box-shadow: inset 0 0 5px 1px rgb(255, 128, 0);
     }
 
   }
@@ -160,7 +160,7 @@
       };
     }
     input:focus{
-      box-shadow: inset 0 0 5px 1px rgb(0, 255, 221);
+      box-shadow: inset 0 0 5px 1px rgb(255, 128, 0);
     }
     input:focus::placeholder{
       transition:0.35s;

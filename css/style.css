@@ -22,7 +22,6 @@ body {
 .wrapper {
   max-width: 1600px;
   min-width: 280px;
-  margin: 0 auto;
   position: absolute;
   top: 100%;
 }
@@ -32,13 +31,13 @@ body {
   position: fixed;
   top: 0%;
   left: 0%;
-  -webkit-transform: translate(0, -100%);
-          transform: translate(0, -100%);
+  -webkit-transform: translateY(-130%);
+          transform: translateY(-130%);
   z-index: 2;
-  background-color: rgba(35, 8, 0, 0.911);
+  background-color: rgba(35, 8, 0, 0.5);
   color: #fff;
-  -webkit-transition: .5;
-  transition: .5;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
 
 .menu__title {
@@ -84,13 +83,21 @@ body {
   max-width: 1600px;
   min-width: 280px;
   margin: 0 auto;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(233, 115, 37, 0.221)));
-  background: linear-gradient(rgba(233, 115, 37, 0.221));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(233, 115, 37, 0.221))), url("../images/mars1_1280.jpg");
+  background: linear-gradient(rgba(233, 115, 37, 0.221)), url("../images/mars1_1280.jpg");
   background-size: cover;
   background-position: 75% 0%;
   text-align: center;
   font-family: "Chakra Petch", sans-serif;
   color: #ffcaad;
+}
+
+@media (min-width: 1200px) {
+  .welcome {
+    background-position: 20% 0%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(233, 115, 37, 0.221))), url("../images/mars1_1920.jpg");
+    background: linear-gradient(rgba(233, 115, 37, 0.221)), url("../images/mars1_1920.jpg");
+  }
 }
 
 .welcome__title {
@@ -168,15 +175,15 @@ body {
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
-  border: 2px solid #00ffdd;
+  border: 2px solid #ff8000;
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
 
 .interface__chose-rover button:focus {
-  -webkit-box-shadow: inset 0 0 3px 1px #00ffdd;
-          box-shadow: inset 0 0 3px 1px #00ffdd;
+  -webkit-box-shadow: inset 0 0 3px 1px #ff8000;
+          box-shadow: inset 0 0 3px 1px #ff8000;
 }
 
 .interface__chose-rover button:active {
@@ -256,15 +263,15 @@ body {
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
-  border: 2px solid #00ffdd;
+  border: 2px solid #ff8000;
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
 
 .interface__date-type button:focus {
-  -webkit-box-shadow: inset 0 0 3px 1px #00ffdd;
-          box-shadow: inset 0 0 3px 1px #00ffdd;
+  -webkit-box-shadow: inset 0 0 3px 1px #ff8000;
+          box-shadow: inset 0 0 3px 1px #ff8000;
 }
 
 .interface__date-type button:active {
@@ -343,7 +350,7 @@ body {
   -ms-grid-row-span: 1;
   grid-row: 2/3;
   outline: none;
-  border: 2px solid #00ffdd;
+  border: 2px solid #ff8000;
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
@@ -367,8 +374,8 @@ body {
 }
 
 .interface__date-format input:focus {
-  -webkit-box-shadow: inset 0 0 5px 1px #00ffdd;
-          box-shadow: inset 0 0 5px 1px #00ffdd;
+  -webkit-box-shadow: inset 0 0 5px 1px #ff8000;
+          box-shadow: inset 0 0 5px 1px #ff8000;
 }
 
 .interface__sol-format {
@@ -412,7 +419,7 @@ body {
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
-  border: 2px solid #00ffdd;
+  border: 2px solid #ff8000;
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
@@ -432,7 +439,7 @@ body {
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
-  border: 2px solid #00ffdd;
+  border: 2px solid #ff8000;
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
@@ -443,8 +450,8 @@ body {
 }
 
 .interface__sol-format input:focus {
-  -webkit-box-shadow: inset 0 0 5px 1px #00ffdd;
-          box-shadow: inset 0 0 5px 1px #00ffdd;
+  -webkit-box-shadow: inset 0 0 5px 1px #ff8000;
+          box-shadow: inset 0 0 5px 1px #ff8000;
 }
 
 .interface__sol-format input:focus::-webkit-input-placeholder {
@@ -500,11 +507,29 @@ body {
   border-radius: 3px;
 }
 
-.gallery section h4 {
+.gallery section button {
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 16px;
   text-transform: uppercase;
-  line-height: 45px;
-  -webkit-box-shadow: inset 0 0 6px 1px #555;
-          box-shadow: inset 0 0 6px 1px #555;
+  background-color: #000;
+  border: 2px solid #ff8000;
+  border-radius: 5px;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+  width: 100%;
+  line-height: 40px;
+}
+
+.gallery section button:focus {
+  -webkit-box-shadow: inset 0 0 3px 1px #ff8000;
+          box-shadow: inset 0 0 3px 1px #ff8000;
+}
+
+.gallery section button:active {
+  border-width: 3px;
+  font-size: 15.2px;
 }
 
 .gallery section div {

@@ -3,18 +3,12 @@
   position: fixed;
   top:0%;
   left:0%;
-  transform: translate(0, -100%);
-  // transform: translateY(-130%);
+  // transform: translate(0, -100%);
+  transform: translateY(-130%);
   z-index: 2;
-  background-color: rgba(35, 8, 0, 0.911);
+  background-color: rgba(35, 8, 0, 0.5);
   color:#fff;
-  transition: .5;
-  // &.--down{
-  //   transform: translateY(0%);
-  // }
-  // &.--up{
-  //   transform: translateY(-100%);
-  // }
+  transition: .6s;
   &__title{
     margin: 20px 10px;
     font-size: 0.6*$font-titles;
