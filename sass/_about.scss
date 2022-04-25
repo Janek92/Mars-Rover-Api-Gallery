@@ -1,0 +1,48 @@
+.about{
+  @include  wrapper-sections(){
+    margin-top: 20px;
+    padding:15px 10px;
+    border-top: 2px solid #fff;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-template-rows: auto auto auto;
+    }
+    div{
+      .fa{
+        font-size: 1.6*$font-text;
+        margin: 5px;
+      }
+    }
+    .about__github{
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    .about__location{
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
+    .about__source{
+      grid-column: 1/2;
+      grid-row: 3/4;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.9*$font-text;
+      font-weight: 200;
+      align-self: center;
+    }
+    .github{
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
+    .homeplace{
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
+    .source{
+      grid-column: 2/3;
+      grid-row: 3/4;
+    }
+}
