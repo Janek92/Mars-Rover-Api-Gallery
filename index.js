@@ -104,7 +104,6 @@ class SetUrl {
     for (let i = 0; i < nr; i++) {
       if (value % 40 == 0) {
         let section = document.createElement('section');
-        // section.innerHTML = "<h4>show/hide images</h4>";
         section.innerHTML = "<button>show/hide images</button>";
         gallery.appendChild(section);
         let div = document.createElement('div');
@@ -121,6 +120,8 @@ class SetUrl {
     const imagesSlots = gallery.querySelectorAll('section');
     imagesSlots.forEach(slot => slot.addEventListener('click', this.hidingShowingImg));
 
+    imagesSlots.forEach(slot => slot.querySelector('div').addEventListener('click', this.choseImg));
+
     this.smoothScroll(gallery);
 
     //POKAŻ SOL/DZIEŃ ZIEMSKI
@@ -128,7 +129,6 @@ class SetUrl {
     // console.log(data.photos[0].earth_date);
   }
   hidingShowingImg(e) {
-    // if (e.target.localName === 'h4') {
     if (e.target.localName === 'button') {
       let div = e.target.parentElement.querySelector('div');
       if (div.style.height === '0px') {
@@ -138,7 +138,29 @@ class SetUrl {
       }
     }
   }
+  choseImg(e) {
+    e.target.style.transform = 'scale(0.95)';
+    e.target.addEventListener('transitionend', () => {
+      e.target.style.transform = 'scale(1)';
+    })
+    const pictureOnScreen = document.createElement('div');
+    pictureOnScreen.classList.add('preview');
+    const left = document.createElement('div');
+    left.classList.add('left-arrow');
+    left.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
+    const close = document.createElement('div');
+    close.classList.add('close');
+    close.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+    const right = document.createElement('div');
+    right.classList.add('right-arrow');
+    right.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
+    const photo = document.createElement('img');
+    photo.setAttribute('src', `${e.target.getAttribute('src')}`);
+    pictureOnScreen.append(photo, left, close, right);
 
+    document.body.appendChild(pictureOnScreen);
+    console.log(e.target.getAttribute('src'))
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -146,30 +168,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('.welcome');
   const wrapper = document.querySelector('.wrapper');
   let opacityLevel;
+  const introduction = document.querySelector('.introduction');
+  const interface = document.querySelector('.interface');
+  const footer = document.querySelector('.about');
   const burger = document.querySelector('.menu__burger');
   const fa = burger.querySelector('.fa');
   const nav = document.querySelector('.menu');
+  const navLinks = nav.querySelectorAll('ul li a');
+  let scrolling = false;
 
-
-  //Obrazek tła headera ładowany w zależności od width
-  const reportWindowSize = () => {
-    if (window.innerWidth <= 1280) {
-      header.style.backgroundImage = "url('./images/mars1_1280.jpg')";
-    } else {
-      header.style.backgroundImage = "url('./images/mars1_1920.jpg')";
-    }
-  }
   const headerWrapperBlur = (value) => {
     header.style.filter = `blur(${value}px)`;
     wrapper.style.filter = `blur(${value}px)`;
   }
-  //Znikający header i pojawiający się wrapper
-  const hideHeader = () => {
-    opacityLevel = Math.round(((wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
-    opacityLevel >= 100 ? opacityLevel = 100 : opacityLevel;
-    header.style.opacity = `${100 - opacityLevel}%`;
-    wrapper.style.opacity = `${opacityLevel}%`;
-    //Pozycja burgera względem przewinięcia strony
+
+  const hideHeaderIfScroll = () => {
+    if (opacityLevel > '40' && fa.classList.contains('fa-bars')) return;
     if (opacityLevel >= '30') {
       nav.style.transform = 'translateY(-100%)';
       fa.classList.remove('fa-times');
@@ -178,6 +192,15 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.style.transform = 'translateY(-130%)';
     }
     headerWrapperBlur(0);
+  }
+  //Znikający header i pojawiający się wrapper
+  const hideHeader = () => {
+    opacityLevel = Math.round(((wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
+    opacityLevel >= 100 ? opacityLevel = 100 : opacityLevel;
+    header.style.opacity = `${100 - opacityLevel}%`;
+    wrapper.style.opacity = `${opacityLevel}%`;
+    //Pozycja burgera względem przewinięcia strony
+    hideHeaderIfScroll();
   }
   const switchBurgerIcon = () => {
     if (fa.classList.contains('fa-bars')) {
@@ -197,7 +220,33 @@ document.addEventListener('DOMContentLoaded', () => {
     fa.style.transform = 'translate(-50%, -50%) scaleY(0.0)';
     setTimeout(switchBurgerIcon, 350);
   }
+  const menuScroll = (section) => {
+    let scrollPos = (section.offsetTop + window.innerHeight);
+    window.scrollTo(0, scrollPos);
+  }
 
+  const menu = (e) => {
+    if (e.target.innerText === 'Header') {
+      window.scrollTo(0, 0);
+    } else if (e.target.innerText === 'Introduction') {
+      menuScroll(introduction);
+    } else if (e.target.innerText === 'Interface') {
+      menuScroll(interface);
+    } else if (e.target.innerText === 'About') {
+      menuScroll(footer);
+    }
+  }
+
+  // window.addEventListener('scroll', () => {
+  //   scrolling = true;
+  // });
+  // setInterval(() => {
+  //   if (scrolling) {
+  //     scrolling = false;
+  //     hideHeader();
+  //   }
+  // }, 50);
+  navLinks.forEach(link => link.addEventListener('click', menu));
   burger.addEventListener('click', toggleMenu);
   window.addEventListener('scroll', hideHeader);
 });
