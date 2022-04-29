@@ -156,10 +156,35 @@ class SetUrl {
     right.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
     const photo = document.createElement('img');
     photo.setAttribute('src', `${e.target.getAttribute('src')}`);
+    let viewingPhoto = e.target;
+    let nextSib = viewingPhoto.nextSibling;
+    let prevSib = viewingPhoto.previousSibling;
+
+    // console.log(prevSib.currentSrc, nextSib.currentSrc);
     pictureOnScreen.append(photo, left, close, right);
 
-    document.body.appendChild(pictureOnScreen);
-    console.log(e.target.getAttribute('src'))
+    const src = document.querySelector('script');
+    document.body.insertBefore(pictureOnScreen, src);
+
+    // console.log(e.target.getAttribute('src'));
+    // console.log(tab[8].currentSrc);
+
+    right.addEventListener('click', () => {
+      let nextLink = nextSib.currentSrc;
+      photo.setAttribute('src', `${nextLink}`);
+      viewingPhoto = viewingPhoto.nextSibling;
+      nextSib = viewingPhoto.nextSibling;
+    })
+    left.addEventListener('click', () => {
+      let previousLink = prevSib.currentSrc;
+      photo.setAttribute('src', `${previousLink}`);
+      viewingPhoto = viewingPhoto.previousSibling;
+      prevSib = viewingPhoto.previousSibling;
+    })
+    close.addEventListener('click', () => {
+      document.body.removeChild(pictureOnScreen);
+    })
+
   }
 }
 
