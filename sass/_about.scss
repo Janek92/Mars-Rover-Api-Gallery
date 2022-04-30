@@ -8,43 +8,43 @@
     grid-template-columns: 1fr 9fr;
     grid-template-rows: auto auto auto;
     }
-    div{
-      text-align: center;
-      .fa{
-        font-size: 1.6*$font-text;
-        margin: 5px;
-      }
+  div{
+    text-align: center;
+    .fa{
+      font-size: 1.6*$font-text;
+      margin: 5px;
     }
-    .about__github{
-      grid-column: 1/2;
-      grid-row: 1/2;
-    }
-    .about__location{
-      grid-column: 1/2;
-      grid-row: 2/3;
-    }
-    .about__source{
-      grid-column: 1/2;
-      grid-row: 3/4;
-    }
-    a{
-      text-decoration: none;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 0.8*$font-text;
-      font-weight: 200;
-      align-self: center;
-    }
-    .github{
-      grid-column: 2/3;
-      grid-row: 1/2;
-    }
-    .homeplace{
-      grid-column: 2/3;
-      grid-row: 2/3;
-    }
-    .source{
-      grid-column: 2/3;
-      grid-row: 3/4;
-    }
+  }
+  .about__github{
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .about__location{
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .about__source{
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.8*$font-text;
+    font-weight: 200;
+    align-self: center;
+  }
+  .github{
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .homeplace{
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .source{
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
 }

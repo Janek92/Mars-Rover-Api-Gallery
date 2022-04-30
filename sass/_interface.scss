@@ -58,7 +58,7 @@
       @include interface-h3(){
         grid-column: 1/-1;
         grid-row: 1/2;
-      };
+      }
     }
     button{
       @include btn();
@@ -88,22 +88,15 @@
   &__date-format {
     width: 100%;
     text-align: center;
-    // display: grid;
-    // grid-template-columns: 1fr;
-    // grid-template-rows: 1fr 1fr;
     display: none;
     h3{
       @include interface-h3(){
-        // grid-column: 1/-1;
-        // grid-row: 1/2;
       };
     }
     h3::after{
       @include titles-after($width: 100%);
     }
     input{
-      // grid-column: 1/-1;
-      // grid-row: 2/3;
       width:50%;
       outline: none;
       border:2px solid rgb(255, 128, 0);
@@ -112,66 +105,46 @@
       text-align: center;
       text-transform: uppercase;
       font-family: $montserrat;
-      // position: relative;
       color: #fff;
       background-color: #000;
       margin: 5px auto;
       font-size:0.9*$font-text;
       height: 3*$font-text;
-      // display: flex;
-      // justify-content:flex-start;
     }
     input::-webkit-calendar-picker-indicator{
-      // position: absolute;
-      // top: 50%;
-      // right: 10%;
-      // transform: translateY(-50%);
       font-size:0.9*$font-text;
-      // color: #fff;
       filter: invert(100%);
     }
     input:focus{
       box-shadow: inset 0 0 8px 1px rgb(255, 128, 0);
     }
-
   }
   &__sol-format {
     width: 100%;
     text-align: center;
-    // display: grid;
-    // grid-template-columns: 1fr;
-    // grid-template-rows: 1fr 1fr 1fr;
     display: none;
     h3{
       @include interface-h3(){
-        // grid-column: 1/-1;
-        // grid-row: 1/2;
-      };
+      }
     }
     h3::after{
       @include titles-after($width: 100%);
     }
-    
     input[type="number"]{
       @include btn($font-size:0.9*$font-text){
-        // grid-column: 1/-1;
-        // grid-row: 2/3;
         text-align: center;
         text-transform: uppercase;
         line-height: 2*$font-text;
         width: 40%;
         margin: 5px auto;
       }
-      
     }
     input[type="submit"]{
       @include btn($font-size:0.9*$font-text){
-        // grid-column: 1/-1;
-        // grid-row: 3/4;
         line-height: 2*$font-text;
         width: 50%;
         margin: 5px auto;
-      };
+      }
     }
     input:focus{
       box-shadow: inset 0 0 8px 1px rgb(255, 128, 0);
