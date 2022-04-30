@@ -395,11 +395,12 @@ body .preview img {
   color: #fff;
   background-color: #000;
   margin: 5px auto;
-  line-height: 32px;
+  font-size: 14.4px;
+  height: 48px;
 }
 
 .interface__date-format input::-webkit-calendar-picker-indicator {
-  font-size: 30px;
+  font-size: 14.4px;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
