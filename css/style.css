@@ -99,7 +99,7 @@ body .preview img {
 }
 
 .menu__list li {
-  margin: 10px 10px;
+  margin: 25px 10px;
 }
 
 .menu__burger {
@@ -395,6 +395,7 @@ body .preview img {
   color: #fff;
   background-color: #000;
   margin: 5px auto;
+  line-height: 32px;
 }
 
 .interface__date-format input::-webkit-calendar-picker-indicator {
@@ -445,7 +446,7 @@ body .preview img {
   transition: 0.15s;
   text-align: center;
   text-transform: uppercase;
-  line-height: 28.8px;
+  line-height: 32px;
   width: 40%;
   margin: 5px auto;
 }
@@ -462,7 +463,7 @@ body .preview img {
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
-  line-height: 28.8px;
+  line-height: 32px;
   width: 50%;
   margin: 5px auto;
 }
@@ -627,7 +628,8 @@ body .preview img {
 .about a {
   text-decoration: none;
   color: #fff;
-  font-size: 14.4px;
+  text-transform: uppercase;
+  font-size: 12.8px;
   font-weight: 200;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
