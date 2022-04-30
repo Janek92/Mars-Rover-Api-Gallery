@@ -362,12 +362,6 @@ body .preview img {
 .interface__date-format {
   width: 100%;
   text-align: center;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
   display: none;
 }
 
@@ -376,10 +370,6 @@ body .preview img {
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
-  grid-column: 1/-1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
 }
 
 .interface__date-format h3::after {
@@ -393,10 +383,7 @@ body .preview img {
 }
 
 .interface__date-format input {
-  grid-column: 1/-1;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
+  width: 50%;
   outline: none;
   border: 2px solid #ff8000;
   border-radius: 5px;
@@ -407,12 +394,13 @@ body .preview img {
   font-family: "Montserrat", sans-serif;
   color: #fff;
   background-color: #000;
-  margin: 5px 0px;
+  margin: 5px auto;
 }
 
 .interface__date-format input::-webkit-calendar-picker-indicator {
   font-size: 30px;
-  color: #fff;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
 
 .interface__date-format input:focus {
@@ -423,12 +411,6 @@ body .preview img {
 .interface__sol-format {
   width: 100%;
   text-align: center;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
   display: none;
 }
 
@@ -437,10 +419,6 @@ body .preview img {
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
-  grid-column: 1/-1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
 }
 
 .interface__sol-format h3::after {
@@ -465,12 +443,11 @@ body .preview img {
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
-  grid-column: 1/-1;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  grid-row: 2/3;
   text-align: center;
   text-transform: uppercase;
+  line-height: 28.8px;
+  width: 40%;
+  margin: 5px auto;
 }
 
 .interface__sol-format input[type="submit"] {
@@ -485,10 +462,9 @@ body .preview img {
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
-  grid-column: 1/-1;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  grid-row: 3/4;
+  line-height: 28.8px;
+  width: 50%;
+  margin: 5px auto;
 }
 
 .interface__sol-format input:focus {
