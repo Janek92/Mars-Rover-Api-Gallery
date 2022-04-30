@@ -11,7 +11,8 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;700&display=swap"
     rel="stylesheet">
-  <title>Document</title>
+  <link rel="shortcut icon" href="favicon.ico" sizes="16x16 32x32">
+  <title>Mars Rover Api Gallery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -37,7 +38,7 @@
     <aside class="introduction">
       <h2>introduction</h2>
       <p class="introduction__text">
-        In order to search for signs of past life and explore Mars in 2003 were sent to rovers.<br> One of them was
+        In order to search for signs of past life and explore Mars in 2003 were sent two rovers.<br> One of them was
         <strong>Spirit</strong>
         which mission was planned at 90 days. Finally Spirit outlasted on Mars over six years and found evidences that
         this planet was somewhen much more earth-like and helped scientists better understand Martian wind. In May
@@ -54,7 +55,10 @@
         2012.
         Since that day Curiosity's mission is still ongoing and its goal is to determine whether the Red Planet ever
         was
-        habitable to microbial life.
+        habitable to microbial life.<br><br><strong>How to use interface :</strong> Select one of three rovers you want,
+        later chose type of date - sol is a martian day where 0 is day of landing and chosing earth date photos will be
+        generated relative to the date on earth when they were made.
+        At the end, type specific date or number of sol.
       </p>
     </aside>
     <main class="interface">
@@ -78,7 +82,7 @@
 
       <form class="interface__sol-format">
         <h3>Enter a sol :</h3>
-        <input type="number" id="sol" name="sol" min="1" placeholder="up/down arrow or enter value">
+        <input type="number" id="sol" name="sol" min="0" placeholder="up/down arrow or enter value">
         <input type="submit" value="Confirm">
       </form>
     </main>
