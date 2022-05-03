@@ -5,9 +5,9 @@
 }
 
 $chakra-petch: 'Chakra Petch', sans-serif;
-//300, 400, 500, 600, 700
+// weights: 300, 400, 500, 600, 700
 $montserrat: 'Montserrat', sans-serif;
-//100, 200, 300, 400, 500, 700
+//weights: 100, 200, 300, 400, 500, 700
 $font-titles: 40px;
 $font-text: 16px;
 
@@ -60,7 +60,6 @@ body{
 .wrapper{
   max-width: 1600px;
   min-width: 280px;
-  // margin:0 auto;
   position: absolute;
   top: 100%;
 }
@@ -72,8 +71,6 @@ $large: 'min-width:1024px';
 $xlarge: 'min-width:1200px';
 $xxlarge: 'min-width:1400px';
 
-//0, 255, 221
-//mixins
 @mixin btn($font:$montserrat, $color:#fff, $font-size:0.8*$font-text, $font-letters: uppercase, $margin-values:5px 1px, $bgc-col:#000, $border-params:2px solid rgb(255, 128, 0), $border-rad:5px, $transition:0.15s){
   outline:none;
   font-family: $font;

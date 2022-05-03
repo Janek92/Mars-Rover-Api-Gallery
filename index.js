@@ -138,6 +138,7 @@ class SetUrl {
       }
     }
   }
+
   choseImg(e) {
     e.target.style.transform = 'scale(0.95)';
     e.target.addEventListener('transitionend', () => {
@@ -159,6 +160,7 @@ class SetUrl {
     let viewingPhoto = e.target;
     let nextSib = viewingPhoto.nextSibling;
     let prevSib = viewingPhoto.previousSibling;
+    let nextLink;
 
     // console.log(prevSib.currentSrc, nextSib.currentSrc);
     pictureOnScreen.append(photo, left, close, right);
@@ -170,23 +172,25 @@ class SetUrl {
     // console.log(tab[8].currentSrc);
 
     right.addEventListener('click', () => {
-      let nextLink = nextSib.currentSrc;
+      nextLink = nextSib.currentSrc;
       photo.setAttribute('src', `${nextLink}`);
       viewingPhoto = viewingPhoto.nextSibling;
       nextSib = viewingPhoto.nextSibling;
-    })
-    left.addEventListener('click', () => {
-      let previousLink = prevSib.currentSrc;
-      photo.setAttribute('src', `${previousLink}`);
-      viewingPhoto = viewingPhoto.previousSibling;
       prevSib = viewingPhoto.previousSibling;
-    })
+    });
+    left.addEventListener('click', () => {
+      nextLink = prevSib.currentSrc;
+      photo.setAttribute('src', `${nextLink}`);
+      viewingPhoto = viewingPhoto.previousSibling;
+      nextSib = viewingPhoto.nextSibling;
+      prevSib = viewingPhoto.previousSibling;
+    });
     close.addEventListener('click', () => {
       document.body.removeChild(pictureOnScreen);
     })
-
   }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   new SetUrl();
@@ -207,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapper.style.filter = `blur(${value}px)`;
   }
 
-  const hideHeaderIfScroll = () => {
+  const hideBurgerIfScroll = () => {
     if (opacityLevel > '40' && fa.classList.contains('fa-bars')) return;
     if (opacityLevel >= '30') {
       nav.style.transform = 'translateY(-100%)';
@@ -220,12 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   //Znikający header i pojawiający się wrapper
   const hideHeader = () => {
-    opacityLevel = Math.round(((wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
-    opacityLevel >= 100 ? opacityLevel = 100 : opacityLevel;
-    header.style.opacity = `${100 - opacityLevel}%`;
-    wrapper.style.opacity = `${opacityLevel}%`;
+    if ((wrapper.offsetTop + window.scrollY) > wrapper.offsetTop * 2 === false) {
+      opacityLevel = Math.round(((wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
+      opacityLevel >= 100 ? opacityLevel = 100 : opacityLevel;
+      header.style.opacity = `${100 - opacityLevel}%`;
+      wrapper.style.opacity = `${opacityLevel}%`;
+      console.log(((wrapper.offsetTop + window.scrollY) > wrapper.offsetTop * 2) === true);
+    }
     //Pozycja burgera względem przewinięcia strony
-    hideHeaderIfScroll();
+    hideBurgerIfScroll();
   }
   const switchBurgerIcon = () => {
     if (fa.classList.contains('fa-bars')) {
