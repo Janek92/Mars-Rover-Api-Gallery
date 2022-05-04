@@ -14,7 +14,7 @@ class SetUrl {
     this.solFormat.addEventListener('submit', this.generateUrlByDateType.bind(this));
 
   }
-  //Metoda do użycia w setValues(e):
+  //Metoda do użycia w generateManifests:
   valuesForRovers(rover, minDate, maxDate, maxSol) {
     this.dateValues.setAttribute('min', minDate);
     this.dateValues.setAttribute('max', maxDate);
@@ -24,6 +24,13 @@ class SetUrl {
     this.solValue.value = 'none';
     this.dateValues.value = 'none';
   };
+
+  //Metoda asynchroniczna do użycia w setValues:
+  async generateManifests(rover) {
+    await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}/?api_key=dlMqkVNwg4kVXWabBfXGrkndVVfCGm6lagFF8gbj`).then(response => response.json()).then(res => this.valuesForRovers(rover, res.photo_manifest.landing_date, res.photo_manifest.max_date, res.photo_manifest.max_sol)).catch(error => alert('Niepowodzenie podczas pobierania API : ' + error));
+    await this.smoothScroll(this.dateType);
+  }
+
   //metoda do nadawania buttonowi klasy pointed
   searchBtnToSetPointed(e, section) {
     const btns = section.querySelectorAll('button');
@@ -38,19 +45,18 @@ class SetUrl {
     let scrollPos = (nextSection.offsetTop + nextSection.clientHeight + window.innerHeight);
     window.scrollTo(0, scrollPos);
   }
-  //Wygenerowanie wartości inputów na podstawie łazika:
-  setValues(e) {
+  //Wygenerowanie wartości inputów na podstawie łazika. Użycie funkcji asynchronicznej ze względu na czas potrzebny do pobrania api z informacjami o maksymalnej dacie i solu dla konkretnego łazika i przesunięcie ekranu do wyboru konkretnej daty/solu:
+  async setValues(e) {
     if (e.target.textContent === 'curiosity') {
-      this.valuesForRovers(e.target.textContent, '2012-08-06', '2022-04-09', '3434');
+      this.generateManifests('curiosity');
     } else if (e.target.textContent === 'opportunity') {
-      this.valuesForRovers(e.target.textContent, '2004-01-25', '2018-06-11', '5111');
+      this.generateManifests('opportunity');
     } else if (e.target.textContent === 'spirit') {
-      this.valuesForRovers(e.target.textContent, '2004-01-04', '2010-03-21', '2208');
+      this.generateManifests('spirit');
     } else {
       return
     };
     this.searchBtnToSetPointed(e, this.choseRover);
-    this.smoothScroll(this.dateType);
   }
 
   //Wyświetlenie tabeli z sol lub date:
