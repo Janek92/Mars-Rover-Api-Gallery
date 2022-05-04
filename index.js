@@ -52,6 +52,7 @@ class SetUrl {
     this.searchBtnToSetPointed(e, this.choseRover);
     this.smoothScroll(this.dateType);
   }
+
   //Wyświetlenie tabeli z sol lub date:
   setDateOrSol(e) {
     if (e.target.textContent === 'earth date') {
@@ -95,10 +96,13 @@ class SetUrl {
     let value = 0;
     let lastSec;
     let nr = data.photos.length;
+
+    console.log(data);
     //Nazwy kamer. Na razie do console:
-    for (let i = 0; i < nr; i++) {
-      console.log(data.photos[i].camera.full_name);
-    }
+    // for (let i = 0; i < nr; i++) {
+    //   console.log(data.photos[i].max_sol);
+    //   console.log(data.photos[i].max_date);
+    // }
     //Dodaj foto do div (div jest w section) po max 40 zdjęć:
     gallery.textContent = '';
     for (let i = 0; i < nr; i++) {
@@ -115,6 +119,10 @@ class SetUrl {
       value++;
       let img = document.createElement('img');
       img.setAttribute('src', data.photos[i].img_src);
+      img.setAttribute('data-camera', data.photos[i].camera.full_name);
+      img.setAttribute('data-earth_date', data.photos[i].earth_date);
+      img.setAttribute('data-sol', data.photos[i].sol);
+      //sol
       lastSec.querySelector('div').appendChild(img);
     }
     const imagesSlots = gallery.querySelectorAll('section');
@@ -162,26 +170,28 @@ class SetUrl {
     let prevSib = viewingPhoto.previousSibling;
     let nextLink;
 
-    // console.log(prevSib.currentSrc, nextSib.currentSrc);
+    console.log(prevSib.currentSrc, nextSib.currentSrc);
     pictureOnScreen.append(photo, left, close, right);
 
     const src = document.querySelector('script');
     document.body.insertBefore(pictureOnScreen, src);
 
-    // console.log(e.target.getAttribute('src'));
-    // console.log(tab[8].currentSrc);
+    console.log(e.target);
+    console.log(e.target.getAttribute('data-camera'));
+    console.log(e.target.getAttribute('data-earth_date'));
+    console.log(e.target.getAttribute('data-sol'));
 
     right.addEventListener('click', () => {
       nextLink = nextSib.currentSrc;
-      photo.setAttribute('src', `${nextLink}`);
       viewingPhoto = viewingPhoto.nextSibling;
+      photo.setAttribute('src', `${nextLink}`);
       nextSib = viewingPhoto.nextSibling;
       prevSib = viewingPhoto.previousSibling;
     });
     left.addEventListener('click', () => {
       nextLink = prevSib.currentSrc;
-      photo.setAttribute('src', `${nextLink}`);
       viewingPhoto = viewingPhoto.previousSibling;
+      photo.setAttribute('src', `${nextLink}`);
       nextSib = viewingPhoto.nextSibling;
       prevSib = viewingPhoto.previousSibling;
     });
@@ -191,94 +201,85 @@ class SetUrl {
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  new SetUrl();
-  const header = document.querySelector('.welcome');
-  const wrapper = document.querySelector('.wrapper');
-  let opacityLevel;
-  const introduction = document.querySelector('.introduction');
-  const interface = document.querySelector('.interface');
-  const footer = document.querySelector('.about');
-  const burger = document.querySelector('.menu__burger');
-  const fa = burger.querySelector('.fa');
-  const nav = document.querySelector('.menu');
-  const navLinks = nav.querySelectorAll('ul li a');
-  let scrolling = false;
-
-  const headerWrapperBlur = (value) => {
-    header.style.filter = `blur(${value}px)`;
-    wrapper.style.filter = `blur(${value}px)`;
+class Gallery {
+  constructor() {
+    this.header = document.querySelector('.welcome');
+    this.wrapper = document.querySelector('.wrapper');
+    this.opacityLevel;
+    this.introduction = document.querySelector('.introduction');
+    this.interface = document.querySelector('.interface');
+    this.footer = document.querySelector('.about');
+    this.burger = document.querySelector('.menu__burger');
+    this.fa = this.burger.querySelector('.fa');
+    this.nav = document.querySelector('.menu');
+    this.navLinks = this.nav.querySelectorAll('ul li a');
+    this.navLinks.forEach(link => link.addEventListener('click', this.menu.bind(this)));
+    this.burger.addEventListener('click', this.toggleMenu.bind(this));
+    window.addEventListener('scroll', this.hideHeader.bind(this));
   }
-
-  const hideBurgerIfScroll = () => {
-    if (opacityLevel > '40' && fa.classList.contains('fa-bars')) return;
-    if (opacityLevel >= '30') {
-      nav.style.transform = 'translateY(-100%)';
-      fa.classList.remove('fa-times');
-      fa.classList.add('fa-bars');
-    } else if (opacityLevel < '30') {
-      nav.style.transform = 'translateY(-130%)';
+  headerWrapperBlur(value) {
+    this.header.style.filter = `blur(${value}px)`;
+    this.wrapper.style.filter = `blur(${value}px)`;
+  }
+  hideBurgerIfScroll() {
+    if (this.opacityLevel > '40' && this.fa.classList.contains('fa-bars')) return;
+    if (this.opacityLevel >= '30') {
+      this.nav.style.transform = 'translateY(-100%)';
+      this.fa.classList.remove('fa-times');
+      this.fa.classList.add('fa-bars');
+    } else if (this.opacityLevel < '30') {
+      this.nav.style.transform = 'translateY(-130%)';
     }
-    headerWrapperBlur(0);
+    this.headerWrapperBlur(0);
   }
-  //Znikający header i pojawiający się wrapper
-  const hideHeader = () => {
-    if ((wrapper.offsetTop + window.scrollY) > wrapper.offsetTop * 2 === false) {
-      opacityLevel = Math.round(((wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
-      opacityLevel >= 100 ? opacityLevel = 100 : opacityLevel;
-      header.style.opacity = `${100 - opacityLevel}%`;
-      wrapper.style.opacity = `${opacityLevel}%`;
-      console.log(((wrapper.offsetTop + window.scrollY) > wrapper.offsetTop * 2) === true);
+  hideHeader() {
+    if ((this.wrapper.offsetTop + window.scrollY) > this.wrapper.offsetTop * 2 === false) {
+      this.opacityLevel = Math.round(((this.wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
+      this.opacityLevel >= 100 ? this.opacityLevel = 100 : this.opacityLevel;
+      this.header.style.opacity = `${100 - this.opacityLevel}%`;
+      this.wrapper.style.opacity = `${this.opacityLevel}%`;
+      console.log(((this.wrapper.offsetTop + window.scrollY) > this.wrapper.offsetTop * 2) === true);
     }
     //Pozycja burgera względem przewinięcia strony
-    hideBurgerIfScroll();
+    this.hideBurgerIfScroll();
   }
-  const switchBurgerIcon = () => {
-    if (fa.classList.contains('fa-bars')) {
-      nav.style.transform = 'translateY(0%)';
-      fa.classList.remove('fa-bars');
-      fa.classList.add('fa-times');
-      headerWrapperBlur(3);
+  switchBurgerIcon() {
+    if (this.fa.classList.contains('fa-bars')) {
+      this.nav.style.transform = 'translateY(0%)';
+      this.fa.classList.remove('fa-bars');
+      this.fa.classList.add('fa-times');
+      this.headerWrapperBlur(3);
     } else {
-      nav.style.transform = 'translateY(-100%)';
-      fa.classList.remove('fa-times');
-      fa.classList.add('fa-bars');
-      headerWrapperBlur(0);
+      this.nav.style.transform = 'translateY(-100%)';
+      this.fa.classList.remove('fa-times');
+      this.fa.classList.add('fa-bars');
+      this.headerWrapperBlur(0);
     }
-    fa.style.transform = 'translate(-50%, -50%) scaleY(0.9)';
+    this.fa.style.transform = 'translate(-50%, -50%) scaleY(0.9)';
   }
-  const toggleMenu = () => {
-    fa.style.transform = 'translate(-50%, -50%) scaleY(0.0)';
-    setTimeout(switchBurgerIcon, 350);
+  toggleMenu() {
+    this.fa.style.transform = 'translate(-50%, -50%) scaleY(0.0)';
+    setTimeout(this.switchBurgerIcon.bind(this), 350);
   }
-  const menuScroll = (section) => {
+  menuScroll(section) {
     let scrollPos = (section.offsetTop + window.innerHeight);
     window.scrollTo(0, scrollPos);
   }
-
-  const menu = (e) => {
+  menu(e) {
     if (e.target.innerText === 'Header') {
       window.scrollTo(0, 0);
     } else if (e.target.innerText === 'Introduction') {
-      menuScroll(introduction);
+      this.menuScroll(this.introduction);
     } else if (e.target.innerText === 'Interface') {
-      menuScroll(interface);
+      this.menuScroll(this.interface);
     } else if (e.target.innerText === 'About') {
-      menuScroll(footer);
+      this.menuScroll(this.footer);
     }
   }
+}
 
-  // window.addEventListener('scroll', () => {
-  //   scrolling = true;
-  // });
-  // setInterval(() => {
-  //   if (scrolling) {
-  //     scrolling = false;
-  //     hideHeader();
-  //   }
-  // }, 50);
-  navLinks.forEach(link => link.addEventListener('click', menu));
-  burger.addEventListener('click', toggleMenu);
-  window.addEventListener('scroll', hideHeader);
+
+document.addEventListener('DOMContentLoaded', () => {
+  new SetUrl();
+  new Gallery();
 });
