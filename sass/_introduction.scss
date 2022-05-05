@@ -7,6 +7,11 @@
   &__text{
     text-transform: uppercase;
     line-height: 1.6;
+    strong:nth-last-of-type(2){
+      font-size: 1.1*$font-text;
+      color: rgb(236, 145, 17);
+      letter-spacing: 2px;
+    }
   }
   h2{
   font-size:0.6*$font-titles;

@@ -103,12 +103,6 @@ class SetUrl {
     let lastSec;
     let nr = data.photos.length;
 
-    console.log(data);
-    //Nazwy kamer. Na razie do console:
-    // for (let i = 0; i < nr; i++) {
-    //   console.log(data.photos[i].max_sol);
-    //   console.log(data.photos[i].max_date);
-    // }
     //Dodaj foto do div (div jest w section) po max 40 zdjęć:
     gallery.textContent = '';
     for (let i = 0; i < nr; i++) {
@@ -152,55 +146,61 @@ class SetUrl {
       }
     }
   }
-
+  //Podgląd zdjęcia
   choseImg(e) {
     e.target.style.transform = 'scale(0.95)';
     e.target.addEventListener('transitionend', () => {
       e.target.style.transform = 'scale(1)';
     })
-    const pictureOnScreen = document.createElement('div');
-    pictureOnScreen.classList.add('preview');
-    const left = document.createElement('div');
-    left.classList.add('left-arrow');
-    left.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
-    const close = document.createElement('div');
-    close.classList.add('close');
-    close.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-    const right = document.createElement('div');
-    right.classList.add('right-arrow');
-    right.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
-    const photo = document.createElement('img');
-    photo.setAttribute('src', `${e.target.getAttribute('src')}`);
+
     let viewingPhoto = e.target;
     let nextSib = viewingPhoto.nextSibling;
     let prevSib = viewingPhoto.previousSibling;
     let nextLink;
 
-    console.log(prevSib.currentSrc, nextSib.currentSrc);
-    pictureOnScreen.append(photo, left, close, right);
+    const pictureOnScreen = document.createElement('div');
+    pictureOnScreen.classList.add('preview');
+    //Sekcja z informacjami o kamerze, dacie i solu:
+    const section = document.createElement('section');
+    const camera = document.createElement('p');
+    camera.innerHTML = `camera type : ${viewingPhoto.getAttribute('data-camera')}`
+    const date = document.createElement('p');
+    date.innerHTML = `Earth date : ${viewingPhoto.getAttribute('data-earth_date')}`;
+    const sol = document.createElement('p');
+    sol.innerHTML = `Martian sol : ${viewingPhoto.getAttribute('data-sol')}`;
+    section.append(camera, date, sol)
+    //Lewa strzałka
+    const left = document.createElement('div');
+    left.classList.add('left-arrow');
+    left.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
+    //X do zamykania podglądu
+    const close = document.createElement('div');
+    close.classList.add('close');
+    close.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+    //Prawa strzałka
+    const right = document.createElement('div');
+    right.classList.add('right-arrow');
+    right.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
+    //Zdjęcie
+    const photo = document.createElement('img');
+    photo.setAttribute('src', `${e.target.getAttribute('src')}`);
 
+    pictureOnScreen.append(photo, left, close, right, section);
+    //Sposób na wrzucenie podglądu w drzewie DOM przed script'em
     const src = document.querySelector('script');
     document.body.insertBefore(pictureOnScreen, src);
 
-    console.log(e.target);
-    console.log(e.target.getAttribute('data-camera'));
-    console.log(e.target.getAttribute('data-earth_date'));
-    console.log(e.target.getAttribute('data-sol'));
-
-    right.addEventListener('click', () => {
-      nextLink = nextSib.currentSrc;
-      viewingPhoto = viewingPhoto.nextSibling;
+    const previewArrowsControl = (whichSib, element) => {
+      nextLink = whichSib.currentSrc;
+      viewingPhoto = element;
       photo.setAttribute('src', `${nextLink}`);
       nextSib = viewingPhoto.nextSibling;
       prevSib = viewingPhoto.previousSibling;
-    });
-    left.addEventListener('click', () => {
-      nextLink = prevSib.currentSrc;
-      viewingPhoto = viewingPhoto.previousSibling;
-      photo.setAttribute('src', `${nextLink}`);
-      nextSib = viewingPhoto.nextSibling;
-      prevSib = viewingPhoto.previousSibling;
-    });
+      camera.innerHTML = `camera type : ${viewingPhoto.getAttribute('data-camera')}`;
+    }
+    //Eventy strzałek i X
+    right.addEventListener('click', () => previewArrowsControl(nextSib, viewingPhoto.nextSibling));
+    left.addEventListener('click', () => previewArrowsControl(prevSib, viewingPhoto.previousSibling));
     close.addEventListener('click', () => {
       document.body.removeChild(pictureOnScreen);
     })
@@ -244,7 +244,6 @@ class Gallery {
       this.opacityLevel >= 100 ? this.opacityLevel = 100 : this.opacityLevel;
       this.header.style.opacity = `${100 - this.opacityLevel}%`;
       this.wrapper.style.opacity = `${this.opacityLevel}%`;
-      console.log(((this.wrapper.offsetTop + window.scrollY) > this.wrapper.offsetTop * 2) === true);
     }
     //Pozycja burgera względem przewinięcia strony
     this.hideBurgerIfScroll();

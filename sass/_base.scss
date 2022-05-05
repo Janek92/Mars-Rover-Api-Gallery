@@ -28,6 +28,16 @@ body{
     top: 0%;
     left: 0%;
     background-color: rgba(0, 0, 0, 0.85);
+    section{
+      color:#fff;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 1.1*$font-text;
+      font-family: $chakra-petch;
+      p{
+        margin:20px 5px;
+      }
+    }
     div{
       color:#fff;
       font-size: 1.4*$font-titles;
