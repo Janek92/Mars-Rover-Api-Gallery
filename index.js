@@ -225,12 +225,15 @@ class Menu {
     this.navLinks.forEach(link => link.addEventListener('click', this.menu.bind(this)));
     this.burger.addEventListener('click', this.toggleMenu.bind(this));
     window.addEventListener('scroll', this.hideHeader.bind(this));
+    window.addEventListener('scroll', this.menuForDesktops.bind(this));
   }
   headerWrapperBlur(value) {
     this.header.style.filter = `blur(${value}px)`;
     this.wrapper.style.filter = `blur(${value}px)`;
   }
   hideBurgerIfScroll() {
+    if (window.innerWidth >= 1024) return
+    console.log('elo');
     if (this.opacityLevel > '40' && this.fa.classList.contains('fa-bars')) return;
     if (this.opacityLevel >= '30') {
       this.nav.style.transform = 'translateY(-100%)';
@@ -242,6 +245,9 @@ class Menu {
     this.headerWrapperBlur(0);
   }
   hideHeader() {
+    // let width = window.innerWidth;
+    // if (window.innerWidth >= 1024) return
+    // console.log('elo');
     if ((this.wrapper.offsetTop + window.scrollY) > this.wrapper.offsetTop * 2 === false) {
       this.opacityLevel = Math.round(((this.wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
       this.opacityLevel >= 100 ? this.opacityLevel = 100 : this.opacityLevel;
@@ -282,6 +288,17 @@ class Menu {
       this.menuScroll(this.interface);
     } else if (e.target.innerText === 'About') {
       this.menuScroll(this.footer);
+    }
+  }
+  menuForDesktops() {
+    if ((window.scrollY / window.innerHeight * 100) > 35) return;
+    if (window.innerWidth >= 1024) {
+      if ((window.scrollY / window.innerHeight * 100) > 30) {
+        this.nav.style.transform = 'translateY(0%)';
+      } else if ((window.scrollY / window.innerHeight * 100) <= 30) {
+        this.nav.style.transform = 'translateY(-100%)';
+      }
+      console.log((window.scrollY / window.innerHeight * 100) > 30);
     }
   }
 }

@@ -8,12 +8,18 @@
   background-color: rgba(35, 8, 0, 0.5);
   color:#fff;
   transition: .6s;
+  @media ($large) and (orientation: landscape){
+    background-color: rgba(35, 8, 0, 0.9);
+  }
   &__title{
     margin: 20px 10px;
     font-size: 0.6*$font-titles;
     text-transform: uppercase;
     @media ($small){
       font-size: 0.7*$font-titles;
+    }
+    @media ($large) and (orientation: landscape){
+      display: none;
     }
   }
   &__list{
@@ -24,10 +30,17 @@
     @media ($small){
       font-size: 1.4*$font-text;
     }
+    @media ($large) and (orientation: landscape){
+      display: flex;
+    }
     li{
       margin: 25px 10px;
       @media ($small){
         margin: 30px 15px;
+      }
+      @media ($large) and (orientation: landscape){
+        margin: 10px 20px;
+        width:auto;
       }
     }
   }
@@ -37,6 +50,9 @@
     position:absolute;
     top:100%;
     left:0%;
+    @media ($large) and (orientation: landscape){
+      display: none;
+    }
     .fa{
       text-shadow: 0 0 5px #000;
       position: absolute;
