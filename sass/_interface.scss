@@ -12,6 +12,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    @media ($small){
+      column-gap: 15px;
+      padding: 0 15px;
+    }
     h3{
       @include interface-h3(){
         grid-column: 1/-1;
@@ -54,6 +58,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     display: none;
+    @media ($small){
+      column-gap: 15px;
+      padding: 0 15px;
+    }
     h3{
       @include interface-h3(){
         grid-column: 1/-1;
@@ -89,6 +97,9 @@
     width: 100%;
     text-align: center;
     display: none;
+    @media ($small){
+      padding: 0 15px;
+    }
     h3{
       @include interface-h3(){
       };
@@ -97,19 +108,10 @@
       @include titles-after($width: 100%);
     }
     input{
-      width:50%;
-      outline: none;
-      border:2px solid rgb(255, 128, 0);
-      border-radius:5px;
-      transition:0.15s;
-      text-align: center;
-      text-transform: uppercase;
-      font-family: $montserrat;
-      color: #fff;
-      background-color: #000;
-      margin: 5px auto;
-      font-size:0.9*$font-text;
-      height: 3*$font-text;
+      @include inputsSolDate(){
+        text-align: center;
+        text-transform: uppercase;
+      }
     }
     input::-webkit-calendar-picker-indicator{
       font-size:0.9*$font-text;
@@ -123,6 +125,9 @@
     width: 100%;
     text-align: center;
     display: none;
+    @media ($small){
+      padding: 0 15px;
+    }
     h3{
       @include interface-h3(){
       }
@@ -131,19 +136,13 @@
       @include titles-after($width: 100%);
     }
     input[type="number"]{
-      @include btn($font-size:0.9*$font-text){
+      @include inputsSolDate(){
         text-align: center;
         text-transform: uppercase;
-        line-height: 2*$font-text;
-        width: 40%;
-        margin: 5px auto;
       }
     }
     input[type="submit"]{
-      @include btn($font-size:0.9*$font-text){
-        line-height: 2*$font-text;
-        width: 50%;
-        margin: 5px auto;
+      @include inputsSolDate(){
       }
     }
     input:focus{

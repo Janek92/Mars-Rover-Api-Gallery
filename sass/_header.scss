@@ -23,5 +23,8 @@ color: rgb(255, 202, 173);
   top: 25%;
   text-shadow: 0px 2px 10px #000000;
   font-weight: 700;
+  @media ($small){
+    font-size: 1.2*$font-titles;
+  }
 }
 }

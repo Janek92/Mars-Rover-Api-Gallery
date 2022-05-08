@@ -203,11 +203,14 @@ class SetUrl {
     left.addEventListener('click', () => previewArrowsControl(prevSib, viewingPhoto.previousSibling));
     close.addEventListener('click', () => {
       document.body.removeChild(pictureOnScreen);
+    });
+    section.addEventListener('click', () => {
+      section.classList.toggle('--invisible');
     })
   }
 }
 
-class Gallery {
+class Menu {
   constructor() {
     this.header = document.querySelector('.welcome');
     this.wrapper = document.querySelector('.wrapper');
@@ -286,5 +289,5 @@ class Gallery {
 
 document.addEventListener('DOMContentLoaded', () => {
   new SetUrl();
-  new Gallery();
+  new Menu();
 });

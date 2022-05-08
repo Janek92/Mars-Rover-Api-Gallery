@@ -31,15 +31,29 @@ body .preview {
 }
 
 body .preview section {
-  color: #fff;
+  position: relative;
+  color: white;
   text-align: center;
   text-transform: uppercase;
   font-size: 17.6px;
   font-family: "Chakra Petch", sans-serif;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+body .preview section.--invisible {
+  opacity: 0;
+}
+
+@media (min-width: 500px) {
+  body .preview section {
+    font-size: 19.2px;
+  }
 }
 
 body .preview section p {
-  margin: 20px 5px;
+  margin: 15px 5px;
+  text-shadow: 0 0 7px #000;
 }
 
 body .preview div {
@@ -48,6 +62,12 @@ body .preview div {
   position: absolute;
   top: 80%;
   left: 0%;
+}
+
+@media (min-width: 500px) {
+  body .preview div {
+    font-size: 64px;
+  }
 }
 
 body .preview .left-arrow {
@@ -69,12 +89,22 @@ body .preview .right-arrow {
 }
 
 body .preview img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   position: absolute;
   top: 50%;
   left: 0%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+@media (min-width: 500px) {
+  body .preview img {
+    left: 50%;
+    max-width: 700px;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
 }
 
 .wrapper {
@@ -104,6 +134,12 @@ body .preview img {
   text-transform: uppercase;
 }
 
+@media (min-width: 500px) {
+  .menu__title {
+    font-size: 28px;
+  }
+}
+
 .menu__list {
   list-style: none;
   margin: 20px 10px;
@@ -111,8 +147,20 @@ body .preview img {
   text-transform: capitalize;
 }
 
+@media (min-width: 500px) {
+  .menu__list {
+    font-size: 22.4px;
+  }
+}
+
 .menu__list li {
   margin: 25px 10px;
+}
+
+@media (min-width: 500px) {
+  .menu__list li {
+    margin: 30px 15px;
+  }
 }
 
 .menu__burger {
@@ -128,11 +176,18 @@ body .preview img {
   position: absolute;
   top: 50%;
   left: 50%;
+  margin-top: 5px;
   -webkit-transform: translate(-50%, -50%) scaleY(0.9);
           transform: translate(-50%, -50%) scaleY(0.9);
-  font-size: 45px;
+  font-size: 40px;
   -webkit-transition: 0.35s;
   transition: 0.35s;
+}
+
+@media (min-width: 500px) {
+  .menu__burger .fa {
+    font-size: 48px;
+  }
 }
 
 .welcome {
@@ -169,6 +224,12 @@ body .preview img {
   font-weight: 700;
 }
 
+@media (min-width: 500px) {
+  .welcome__title {
+    font-size: 48px;
+  }
+}
+
 .introduction {
   width: 100%;
   padding: 10px 5px;
@@ -191,10 +252,28 @@ body .preview img {
   letter-spacing: 2px;
 }
 
+@media (min-width: 500px) {
+  .introduction__text strong:nth-last-of-type(2) {
+    font-size: 19.2px;
+  }
+}
+
+@media (min-width: 500px) {
+  .introduction__text {
+    font-size: 19.2px;
+  }
+}
+
 .introduction h2 {
   font-size: 24px;
   text-transform: uppercase;
   padding: 12px 0;
+}
+
+@media (min-width: 500px) {
+  .introduction h2 {
+    font-size: 28px;
+  }
 }
 
 .interface {
@@ -223,6 +302,14 @@ body .preview img {
       grid-template-rows: 1fr 1fr;
 }
 
+@media (min-width: 500px) {
+  .interface__chose-rover {
+    -webkit-column-gap: 15px;
+            column-gap: 15px;
+    padding: 0 15px;
+  }
+}
+
 .interface__chose-rover h3 {
   position: relative;
   font-size: 20px;
@@ -234,11 +321,17 @@ body .preview img {
   grid-row: 1/2;
 }
 
+@media (min-width: 500px) {
+  .interface__chose-rover h3 {
+    font-size: 24px;
+  }
+}
+
 .interface__chose-rover button {
   outline: none;
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 12.8px;
+  font-size: 14.4px;
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
@@ -246,6 +339,12 @@ body .preview img {
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
+}
+
+@media (min-width: 500px) {
+  .interface__chose-rover button {
+    font-size: 16px;
+  }
 }
 
 .interface__chose-rover button:focus {
@@ -311,6 +410,14 @@ body .preview img {
   display: none;
 }
 
+@media (min-width: 500px) {
+  .interface__date-type {
+    -webkit-column-gap: 15px;
+            column-gap: 15px;
+    padding: 0 15px;
+  }
+}
+
 .interface__date-type h3 {
   position: relative;
   font-size: 20px;
@@ -322,11 +429,17 @@ body .preview img {
   grid-row: 1/2;
 }
 
+@media (min-width: 500px) {
+  .interface__date-type h3 {
+    font-size: 24px;
+  }
+}
+
 .interface__date-type button {
   outline: none;
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 12.8px;
+  font-size: 14.4px;
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
@@ -334,6 +447,12 @@ body .preview img {
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
+}
+
+@media (min-width: 500px) {
+  .interface__date-type button {
+    font-size: 16px;
+  }
 }
 
 .interface__date-type button:focus {
@@ -384,11 +503,23 @@ body .preview img {
   display: none;
 }
 
+@media (min-width: 500px) {
+  .interface__date-format {
+    padding: 0 15px;
+  }
+}
+
 .interface__date-format h3 {
   position: relative;
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
+}
+
+@media (min-width: 500px) {
+  .interface__date-format h3 {
+    font-size: 24px;
+  }
 }
 
 .interface__date-format h3::after {
@@ -402,20 +533,27 @@ body .preview img {
 }
 
 .interface__date-format input {
-  width: 50%;
   outline: none;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  font-size: 14.4px;
+  text-transform: uppercase;
+  margin: 5px auto;
+  background-color: #000;
   border: 2px solid #ff8000;
   border-radius: 5px;
+  width: 40%;
+  line-height: 32px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  background-color: #000;
-  margin: 5px auto;
-  font-size: 14.4px;
-  height: 48px;
+}
+
+@media (min-width: 500px) {
+  .interface__date-format input {
+    font-size: 16px;
+  }
 }
 
 .interface__date-format input::-webkit-calendar-picker-indicator {
@@ -435,11 +573,23 @@ body .preview img {
   display: none;
 }
 
+@media (min-width: 500px) {
+  .interface__sol-format {
+    padding: 0 15px;
+  }
+}
+
 .interface__sol-format h3 {
   position: relative;
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
+}
+
+@media (min-width: 500px) {
+  .interface__sol-format h3 {
+    font-size: 24px;
+  }
 }
 
 .interface__sol-format h3::after {
@@ -458,17 +608,22 @@ body .preview img {
   color: #fff;
   font-size: 14.4px;
   text-transform: uppercase;
-  margin: 5px 1px;
+  margin: 5px auto;
   background-color: #000;
   border: 2px solid #ff8000;
   border-radius: 5px;
+  width: 40%;
+  line-height: 32px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   text-align: center;
   text-transform: uppercase;
-  line-height: 32px;
-  width: 40%;
-  margin: 5px auto;
+}
+
+@media (min-width: 500px) {
+  .interface__sol-format input[type="number"] {
+    font-size: 16px;
+  }
 }
 
 .interface__sol-format input[type="submit"] {
@@ -477,15 +632,20 @@ body .preview img {
   color: #fff;
   font-size: 14.4px;
   text-transform: uppercase;
-  margin: 5px 1px;
+  margin: 5px auto;
   background-color: #000;
   border: 2px solid #ff8000;
   border-radius: 5px;
+  width: 40%;
+  line-height: 32px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
-  line-height: 32px;
-  width: 50%;
-  margin: 5px auto;
+}
+
+@media (min-width: 500px) {
+  .interface__sol-format input[type="submit"] {
+    font-size: 16px;
+  }
 }
 
 .interface__sol-format input:focus {
@@ -551,7 +711,7 @@ body .preview img {
   outline: none;
   font-family: "Montserrat", sans-serif;
   color: #fff;
-  font-size: 16px;
+  font-size: 14.4px;
   text-transform: uppercase;
   background-color: #000;
   border: 2px solid #ff8000;
@@ -560,6 +720,12 @@ body .preview img {
   transition: 0.15s;
   width: 100%;
   line-height: 40px;
+}
+
+@media (min-width: 500px) {
+  .gallery section button {
+    font-size: 16px;
+  }
 }
 
 .gallery section button:focus {
