@@ -20,7 +20,14 @@ body {
   background-color: #000;
 }
 
-body .preview {
+.wrapper {
+  max-width: 1600px;
+  min-width: 280px;
+  position: absolute;
+  top: 100%;
+}
+
+.preview {
   width: 100%;
   height: 100vh;
   z-index: 3;
@@ -30,7 +37,7 @@ body .preview {
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-body .preview section {
+.preview section {
   position: relative;
   color: white;
   text-align: center;
@@ -41,54 +48,87 @@ body .preview section {
   transition: 0.25s;
 }
 
-body .preview section.--invisible {
+.preview section.--invisible {
   opacity: 0;
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .preview section {
+    cursor: pointer;
+  }
+}
+
 @media (min-width: 500px) {
-  body .preview section {
+  .preview section {
     font-size: 19.2px;
   }
 }
 
-body .preview section p {
+.preview section p {
   margin: 15px 5px;
   text-shadow: 0 0 7px #000;
 }
 
-body .preview div {
+.preview div {
   color: #fff;
   font-size: 56px;
   position: absolute;
   top: 80%;
   left: 0%;
+  opacity: .4;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 @media (min-width: 500px) {
-  body .preview div {
+  .preview div {
     font-size: 64px;
   }
 }
 
-body .preview .left-arrow {
+@media (min-width: 1024px) and (orientation: landscape) {
+  .preview div:hover {
+    opacity: 1;
+  }
+}
+
+.preview .left-arrow {
   left: 0%;
   -webkit-transform: translateX(15%);
           transform: translateX(15%);
 }
 
-body .preview .close {
+@media (min-width: 1024px) and (orientation: landscape) {
+  .preview .left-arrow {
+    cursor: pointer;
+  }
+}
+
+.preview .close {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 
-body .preview .right-arrow {
+@media (min-width: 1024px) and (orientation: landscape) {
+  .preview .close {
+    cursor: pointer;
+  }
+}
+
+.preview .right-arrow {
   left: 100%;
   -webkit-transform: translateX(-115%);
           transform: translateX(-115%);
 }
 
-body .preview img {
+@media (min-width: 1024px) and (orientation: landscape) {
+  .preview .right-arrow {
+    cursor: pointer;
+  }
+}
+
+.preview img {
   width: auto;
   max-width: 100%;
   position: absolute;
@@ -99,19 +139,12 @@ body .preview img {
 }
 
 @media (min-width: 500px) {
-  body .preview img {
+  .preview img {
     left: 50%;
     max-width: 700px;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
   }
-}
-
-.wrapper {
-  max-width: 1600px;
-  min-width: 280px;
-  position: absolute;
-  top: 100%;
 }
 
 .menu {
@@ -185,8 +218,9 @@ body .preview img {
 
 @media (min-width: 1024px) and (orientation: landscape) {
   .menu__list li {
-    margin: 10px 20px;
+    margin: 0px 20px;
     width: auto;
+    cursor: pointer;
   }
 }
 
@@ -263,6 +297,12 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .welcome__title {
+    font-size: 60px;
+  }
+}
+
 .introduction {
   width: 100%;
   padding: 10px 5px;
@@ -309,6 +349,12 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .introduction h2 {
+    font-size: 36px;
+  }
+}
+
 .interface {
   width: 100%;
   color: #fff;
@@ -335,14 +381,6 @@ body .preview img {
       grid-template-rows: 1fr 1fr;
 }
 
-@media (min-width: 500px) {
-  .interface__chose-rover {
-    -webkit-column-gap: 15px;
-            column-gap: 15px;
-    padding: 0 15px;
-  }
-}
-
 .interface__chose-rover h3 {
   position: relative;
   font-size: 20px;
@@ -357,6 +395,12 @@ body .preview img {
 @media (min-width: 500px) {
   .interface__chose-rover h3 {
     font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__chose-rover h3 {
+    font-size: 32px;
   }
 }
 
@@ -380,9 +424,39 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__chose-rover button {
+    cursor: pointer;
+    font-size: 19.2px;
+  }
+  .interface__chose-rover button:hover {
+    -webkit-box-shadow: 0 0 12px 4px #ff8000;
+            box-shadow: 0 0 12px 4px #ff8000;
+  }
+}
+
+@media (min-width: 500px) {
+  .interface__chose-rover button {
+    margin: 0 15px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__chose-rover button {
+    margin: 0 50px;
+  }
+}
+
 .interface__chose-rover button:focus {
-  -webkit-box-shadow: inset 0 0 8px 1px #ff8000;
-          box-shadow: inset 0 0 8px 1px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
+          box-shadow: inset 0 0 8px 2px #ff8000;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__chose-rover button:focus {
+    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
+            box-shadow: inset 0 0 10px 3px #ff8000;
+  }
 }
 
 .interface__chose-rover button:active {
@@ -443,14 +517,6 @@ body .preview img {
   display: none;
 }
 
-@media (min-width: 500px) {
-  .interface__date-type {
-    -webkit-column-gap: 15px;
-            column-gap: 15px;
-    padding: 0 15px;
-  }
-}
-
 .interface__date-type h3 {
   position: relative;
   font-size: 20px;
@@ -465,6 +531,12 @@ body .preview img {
 @media (min-width: 500px) {
   .interface__date-type h3 {
     font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-type h3 {
+    font-size: 32px;
   }
 }
 
@@ -488,9 +560,39 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-type button {
+    cursor: pointer;
+    font-size: 19.2px;
+  }
+  .interface__date-type button:hover {
+    -webkit-box-shadow: 0 0 12px 4px #ff8000;
+            box-shadow: 0 0 12px 4px #ff8000;
+  }
+}
+
+@media (min-width: 500px) {
+  .interface__date-type button {
+    margin: 0 30px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-type button {
+    margin: 0 70px;
+  }
+}
+
 .interface__date-type button:focus {
-  -webkit-box-shadow: inset 0 0 8px 1px #ff8000;
-          box-shadow: inset 0 0 8px 1px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
+          box-shadow: inset 0 0 8px 2px #ff8000;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-type button:focus {
+    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
+            box-shadow: inset 0 0 10px 3px #ff8000;
+  }
 }
 
 .interface__date-type button:active {
@@ -536,12 +638,6 @@ body .preview img {
   display: none;
 }
 
-@media (min-width: 500px) {
-  .interface__date-format {
-    padding: 0 15px;
-  }
-}
-
 .interface__date-format h3 {
   position: relative;
   font-size: 20px;
@@ -552,6 +648,12 @@ body .preview img {
 @media (min-width: 500px) {
   .interface__date-format h3 {
     font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-format h3 {
+    font-size: 32px;
   }
 }
 
@@ -576,7 +678,7 @@ body .preview img {
   border: 2px solid #ff8000;
   border-radius: 5px;
   width: 40%;
-  line-height: 32px;
+  line-height: 64px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   text-align: center;
@@ -589,27 +691,40 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-format input {
+    cursor: pointer;
+    width: 20%;
+    font-size: 19.2px;
+  }
+  .interface__date-format input:hover {
+    -webkit-box-shadow: 0 0 12px 4px #ff8000;
+            box-shadow: 0 0 12px 4px #ff8000;
+  }
+}
+
 .interface__date-format input::-webkit-calendar-picker-indicator {
-  font-size: 14.4px;
+  font-size: 19.2px;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
 
 .interface__date-format input:focus {
-  -webkit-box-shadow: inset 0 0 8px 1px #ff8000;
-          box-shadow: inset 0 0 8px 1px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
+          box-shadow: inset 0 0 8px 2px #ff8000;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__date-format input:focus {
+    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
+            box-shadow: inset 0 0 10px 3px #ff8000;
+  }
 }
 
 .interface__sol-format {
   width: 100%;
   text-align: center;
   display: none;
-}
-
-@media (min-width: 500px) {
-  .interface__sol-format {
-    padding: 0 15px;
-  }
 }
 
 .interface__sol-format h3 {
@@ -622,6 +737,12 @@ body .preview img {
 @media (min-width: 500px) {
   .interface__sol-format h3 {
     font-size: 24px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__sol-format h3 {
+    font-size: 32px;
   }
 }
 
@@ -646,7 +767,7 @@ body .preview img {
   border: 2px solid #ff8000;
   border-radius: 5px;
   width: 40%;
-  line-height: 32px;
+  line-height: 64px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   text-align: center;
@@ -656,6 +777,18 @@ body .preview img {
 @media (min-width: 500px) {
   .interface__sol-format input[type="number"] {
     font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__sol-format input[type="number"] {
+    cursor: pointer;
+    width: 20%;
+    font-size: 19.2px;
+  }
+  .interface__sol-format input[type="number"]:hover {
+    -webkit-box-shadow: 0 0 12px 4px #ff8000;
+            box-shadow: 0 0 12px 4px #ff8000;
   }
 }
 
@@ -670,7 +803,7 @@ body .preview img {
   border: 2px solid #ff8000;
   border-radius: 5px;
   width: 40%;
-  line-height: 32px;
+  line-height: 64px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
@@ -681,9 +814,28 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__sol-format input[type="submit"] {
+    cursor: pointer;
+    width: 20%;
+    font-size: 19.2px;
+  }
+  .interface__sol-format input[type="submit"]:hover {
+    -webkit-box-shadow: 0 0 12px 4px #ff8000;
+            box-shadow: 0 0 12px 4px #ff8000;
+  }
+}
+
 .interface__sol-format input:focus {
-  -webkit-box-shadow: inset 0 0 8px 1px #ff8000;
-          box-shadow: inset 0 0 8px 1px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
+          box-shadow: inset 0 0 8px 2px #ff8000;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .interface__sol-format input:focus {
+    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
+            box-shadow: inset 0 0 10px 3px #ff8000;
+  }
 }
 
 .interface__sol-format input:focus::-webkit-input-placeholder {
@@ -710,11 +862,6 @@ body .preview img {
   transition: 0.35s;
   -webkit-transform: scale(0);
           transform: scale(0);
-}
-
-.interface__sol-format input:active {
-  border-width: 3px;
-  font-size: 13.6px;
 }
 
 .gallery {
@@ -761,9 +908,32 @@ body .preview img {
   }
 }
 
+@media (min-width: 1024px) and (orientation: landscape) {
+  .gallery section button {
+    cursor: pointer;
+    font-size: 19.2px;
+  }
+  .gallery section button:hover {
+    -webkit-box-shadow: 0 0 12px 4px #ff8000;
+            box-shadow: 0 0 12px 4px #ff8000;
+  }
+}
+
+.gallery section button:hover {
+  -webkit-box-shadow: inset 0 0 12px 4px #ff8000;
+          box-shadow: inset 0 0 12px 4px #ff8000;
+}
+
 .gallery section button:focus {
-  -webkit-box-shadow: inset 0 0 3px 1px #ff8000;
-          box-shadow: inset 0 0 3px 1px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
+          box-shadow: inset 0 0 8px 2px #ff8000;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .gallery section button:focus {
+    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
+            box-shadow: inset 0 0 10px 3px #ff8000;
+  }
 }
 
 .gallery section button:active {
@@ -783,14 +953,16 @@ body .preview img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 
 .gallery section div img {
   width: 25%;
-  -webkit-transition: .15s;
-  transition: .15s;
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  .gallery section div img {
+    cursor: pointer;
+  }
 }
 
 .about {
@@ -802,8 +974,8 @@ body .preview img {
   background-color: black;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 9fr;
-      grid-template-columns: 1fr 9fr;
+  -ms-grid-columns: auto auto 1fr;
+      grid-template-columns: auto auto 1fr;
   -ms-grid-rows: auto auto auto;
       grid-template-rows: auto auto auto;
 }

@@ -26,5 +26,8 @@ color: rgb(255, 202, 173);
   @media ($small){
     font-size: 1.2*$font-titles;
   }
+  @media ($large) and (orientation: landscape){
+    font-size: 1.5*$font-titles;
+  }
 }
 }

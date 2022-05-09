@@ -12,10 +12,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    @media ($small){
-      column-gap: 15px;
-      padding: 0 15px;
-    }
     h3{
       @include interface-h3(){
         grid-column: 1/-1;
@@ -24,9 +20,15 @@
     }
     button{
       @include btn();
+      @media ($small){
+        margin: 0 15px
+      }
+      @media ($large) and (orientation: landscape){
+      margin: 0 50px
+      }
     }
     button:focus{
-      box-shadow: inset 0 0 8px 1px rgb(255, 128, 0);
+      @include btn-focus();
     }
     button:active{
       border-width: 3px;
@@ -58,10 +60,6 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     display: none;
-    @media ($small){
-      column-gap: 15px;
-      padding: 0 15px;
-    }
     h3{
       @include interface-h3(){
         grid-column: 1/-1;
@@ -70,9 +68,15 @@
     }
     button{
       @include btn();
+      @media ($small){
+        margin: 0 30px
+      }
+      @media ($large) and (orientation: landscape){
+      margin: 0 70px
+      }
     }
     button:focus{
-      box-shadow: inset 0 0 8px 1px rgb(255, 128, 0);
+      @include btn-focus();
     }
     button:active{
       border-width: 3px;
@@ -97,9 +101,6 @@
     width: 100%;
     text-align: center;
     display: none;
-    @media ($small){
-      padding: 0 15px;
-    }
     h3{
       @include interface-h3(){
       };
@@ -114,20 +115,17 @@
       }
     }
     input::-webkit-calendar-picker-indicator{
-      font-size:0.9*$font-text;
+      font-size:1.2*$font-text;
       filter: invert(100%);
     }
     input:focus{
-      box-shadow: inset 0 0 8px 1px rgb(255, 128, 0);
+      @include btn-focus();
     }
   }
   &__sol-format {
     width: 100%;
     text-align: center;
     display: none;
-    @media ($small){
-      padding: 0 15px;
-    }
     h3{
       @include interface-h3(){
       }
@@ -146,15 +144,15 @@
       }
     }
     input:focus{
-      box-shadow: inset 0 0 8px 1px rgb(255, 128, 0);
+      @include btn-focus();
     }
     input:focus::placeholder{
       transition:0.35s;
       transform: scale(0);
     }
-    input:active{
-      border-width: 3px;
-      font-size: 0.85*$font-text;
-    }
+    // input:active{
+    //   border-width: 3px;
+    //   font-size: 0.85*$font-text;
+    // }
   }
 }

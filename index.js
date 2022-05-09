@@ -291,7 +291,7 @@ class Menu {
     }
   }
   menuForDesktops() {
-    if ((window.scrollY / window.innerHeight * 100) > 35) return;
+    if ((window.scrollY / window.innerHeight * 100) > 50) return;
     if (window.innerWidth >= 1024) {
       if ((window.scrollY / window.innerHeight * 100) > 30) {
         this.nav.style.transform = 'translateY(0%)';

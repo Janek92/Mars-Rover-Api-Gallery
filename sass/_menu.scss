@@ -39,8 +39,9 @@
         margin: 30px 15px;
       }
       @media ($large) and (orientation: landscape){
-        margin: 10px 20px;
+        margin: 0px 20px;
         width:auto;
+        cursor: pointer;
       }
     }
   }

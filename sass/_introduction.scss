@@ -26,5 +26,8 @@
   @media ($small){
     font-size: 0.7*$font-titles;
   }
+  @media ($large) and (orientation: landscape){
+    font-size: 0.9*$font-titles;
+  }
   }
 }
