@@ -12,9 +12,8 @@ class SetUrl {
     this.dateValues.addEventListener('change', this.generateUrlByDateType
       .bind(this));
     this.solFormat.addEventListener('submit', this.generateUrlByDateType.bind(this));
-
   }
-  //Metoda do użycia w generateManifests:
+  //method to use in generateManifests for date and sol values and chose type of date section on
   valuesForRovers(rover, minDate, maxDate, maxSol) {
     this.dateValues.setAttribute('min', minDate);
     this.dateValues.setAttribute('max', maxDate);
@@ -24,14 +23,12 @@ class SetUrl {
     this.solValue.value = 'none';
     this.dateValues.value = 'none';
   };
-
-  //Metoda asynchroniczna do użycia w setValues:
+  //async method to use in setValues
   async generateManifests(rover) {
     await fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}/?api_key=dlMqkVNwg4kVXWabBfXGrkndVVfCGm6lagFF8gbj`).then(response => response.json()).then(res => this.valuesForRovers(rover, res.photo_manifest.landing_date, res.photo_manifest.max_date, res.photo_manifest.max_sol)).catch(error => alert('Niepowodzenie podczas pobierania API : ' + error));
     await this.smoothScroll(this.dateType);
   }
-
-  //metoda do nadawania buttonowi klasy pointed
+  //a method for adding button pointed class
   searchBtnToSetPointed(e, section) {
     const btns = section.querySelectorAll('button');
     btns.forEach(btn => {
@@ -40,12 +37,12 @@ class SetUrl {
     });
     e.target.classList.add('pointed');
   }
-  //metoda do scrollownia do nastepnej sekcji:
+  //scroll method
   smoothScroll(nextSection) {
     let scrollPos = (nextSection.offsetTop + nextSection.clientHeight + window.innerHeight);
     window.scrollTo(0, scrollPos);
   }
-  //Wygenerowanie wartości inputów na podstawie łazika. Użycie funkcji asynchronicznej ze względu na czas potrzebny do pobrania api z informacjami o maksymalnej dacie i solu dla konkretnego łazika i przesunięcie ekranu do wyboru konkretnej daty/solu:
+  //generate inputs date and sol values based on chosen rover - used async method because of time for api connection
   async setValues(e) {
     if (e.target.textContent === 'curiosity') {
       this.generateManifests('curiosity');
@@ -58,8 +55,7 @@ class SetUrl {
     };
     this.searchBtnToSetPointed(e, this.choseRover);
   }
-
-  //Wyświetlenie tabeli z sol lub date:
+  //display a table with sol or date on
   setDateOrSol(e) {
     if (e.target.textContent === 'earth date') {
       this.solFormat.style.display = 'none';
@@ -76,10 +72,8 @@ class SetUrl {
     } else if (this.dateFormat.style.display === 'none') {
       this.smoothScroll(this.solFormat);
     }
-
   }
-
-  //Generowanie url na podstawie sol lub date:
+  //generate api link on the sol or date based
   generateUrlByDateType(e, url) {
     if (e.target.name === 'date') {
       url =
@@ -91,19 +85,20 @@ class SetUrl {
     }
     this.downloadPics(url);
   }
+  //fetch api
   downloadPics(urlPhotos) {
     fetch(urlPhotos)
       .then(response => response.json())
       .then(res => this.showImages(res))
       .catch(error => alert('Niepowodzenie podczas pobierania API : ' + error));
   }
+  //create gallery method
   showImages(data) {
     const gallery = document.querySelector('.gallery');
     let value = 0;
     let lastSec;
     let nr = data.photos.length;
-
-    //Dodaj foto do div (div jest w section) po max 40 zdjęć:
+    //conditional statement for adding images to div(which is in section) with max 40 elements
     gallery.textContent = '';
     for (let i = 0; i < nr; i++) {
       if (value % 40 == 0) {
@@ -131,11 +126,8 @@ class SetUrl {
     imagesSlots.forEach(slot => slot.querySelector('div').addEventListener('click', this.choseImg));
 
     this.smoothScroll(gallery);
-
-    //POKAŻ SOL/DZIEŃ ZIEMSKI
-    // console.log(data.photos[0].sol);
-    // console.log(data.photos[0].earth_date);
   }
+  //expanding the section with photos
   hidingShowingImg(e) {
     if (e.target.localName === 'button') {
       let div = e.target.parentElement.querySelector('div');
@@ -146,21 +138,19 @@ class SetUrl {
       }
     }
   }
-  //Podgląd zdjęcia
+  //picture preview method
   choseImg(e) {
     e.target.style.transform = 'scale(0.95)';
     e.target.addEventListener('transitionend', () => {
       e.target.style.transform = 'scale(1)';
     })
-
     let viewingPhoto = e.target;
     let nextSib = viewingPhoto.nextSibling;
     let prevSib = viewingPhoto.previousSibling;
     let nextLink;
-
     const pictureOnScreen = document.createElement('div');
     pictureOnScreen.classList.add('preview');
-    //Sekcja z informacjami o kamerze, dacie i solu:
+    //section with camera, date and sol information
     const section = document.createElement('section');
     const camera = document.createElement('p');
     camera.innerHTML = `camera type : ${viewingPhoto.getAttribute('data-camera')}`
@@ -169,27 +159,26 @@ class SetUrl {
     const sol = document.createElement('p');
     sol.innerHTML = `Martian sol : ${viewingPhoto.getAttribute('data-sol')}`;
     section.append(camera, date, sol)
-    //Lewa strzałka
+    //left arrow
     const left = document.createElement('div');
     left.classList.add('left-arrow');
     left.innerHTML = '<i class="fa fa-chevron-left" aria-hidden="true"></i>';
-    //X do zamykania podglądu
+    //close picture icon
     const close = document.createElement('div');
     close.classList.add('close');
     close.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
-    //Prawa strzałka
+    //right arrow
     const right = document.createElement('div');
     right.classList.add('right-arrow');
     right.innerHTML = '<i class="fa fa-chevron-right" aria-hidden="true"></i>';
-    //Zdjęcie
+    //picture
     const photo = document.createElement('img');
     photo.setAttribute('src', `${e.target.getAttribute('src')}`);
-
     pictureOnScreen.append(photo, left, close, right, section);
-    //Sposób na wrzucenie podglądu w drzewie DOM przed script'em
+    //way on set preview on DOM before script
     const src = document.querySelector('script');
     document.body.insertBefore(pictureOnScreen, src);
-
+    //previev controls function
     const previewArrowsControl = (whichSib, element) => {
       nextLink = whichSib.currentSrc;
       viewingPhoto = element;
@@ -198,7 +187,7 @@ class SetUrl {
       prevSib = viewingPhoto.previousSibling;
       camera.innerHTML = `camera type : ${viewingPhoto.getAttribute('data-camera')}`;
     }
-    //Eventy strzałek i X
+    //previev controls events
     right.addEventListener('click', () => previewArrowsControl(nextSib, viewingPhoto.nextSibling));
     left.addEventListener('click', () => previewArrowsControl(prevSib, viewingPhoto.previousSibling));
     close.addEventListener('click', () => {
@@ -227,13 +216,14 @@ class Menu {
     window.addEventListener('scroll', this.hideHeader.bind(this));
     window.addEventListener('scroll', this.menuForDesktops.bind(this));
   }
+  //setting blur effect when menu is expanded
   headerWrapperBlur(value) {
     this.header.style.filter = `blur(${value}px)`;
     this.wrapper.style.filter = `blur(${value}px)`;
   }
+  //slide out burger icon with scroll on smaller devices
   hideBurgerIfScroll() {
     if (window.innerWidth >= 1024) return
-    console.log('elo');
     if (this.opacityLevel > '40' && this.fa.classList.contains('fa-bars')) return;
     if (this.opacityLevel >= '30') {
       this.nav.style.transform = 'translateY(-100%)';
@@ -244,19 +234,18 @@ class Menu {
     }
     this.headerWrapperBlur(0);
   }
+  //setting opacity on header
   hideHeader() {
-    // let width = window.innerWidth;
-    // if (window.innerWidth >= 1024) return
-    // console.log('elo');
     if ((this.wrapper.offsetTop + window.scrollY) > this.wrapper.offsetTop * 2 === false) {
       this.opacityLevel = Math.round(((this.wrapper.offsetTop - window.innerHeight) + window.scrollY) / window.innerHeight * 100);
       this.opacityLevel >= 100 ? this.opacityLevel = 100 : this.opacityLevel;
       this.header.style.opacity = `${100 - this.opacityLevel}%`;
       this.wrapper.style.opacity = `${this.opacityLevel}%`;
     }
-    //Pozycja burgera względem przewinięcia strony
+    //Burger position relative to page scroll
     this.hideBurgerIfScroll();
   }
+  //burger icon switch
   switchBurgerIcon() {
     if (this.fa.classList.contains('fa-bars')) {
       this.nav.style.transform = 'translateY(0%)';
@@ -271,14 +260,17 @@ class Menu {
     }
     this.fa.style.transform = 'translate(-50%, -50%) scaleY(0.9)';
   }
+  //animated icon scaling
   toggleMenu() {
     this.fa.style.transform = 'translate(-50%, -50%) scaleY(0.0)';
     setTimeout(this.switchBurgerIcon.bind(this), 350);
   }
+  //method to scroll
   menuScroll(section) {
     let scrollPos = (section.offsetTop + window.innerHeight);
     window.scrollTo(0, scrollPos);
   }
+  //moves the page to the appropriate section
   menu(e) {
     if (e.target.innerText === 'Header') {
       window.scrollTo(0, 0);
@@ -290,6 +282,7 @@ class Menu {
       this.menuScroll(this.footer);
     }
   }
+  //slide out menu with scroll on desktops
   menuForDesktops() {
     if ((window.scrollY / window.innerHeight * 100) > 50) return;
     if (window.innerWidth >= 1024) {
@@ -302,7 +295,6 @@ class Menu {
     }
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   new SetUrl();
