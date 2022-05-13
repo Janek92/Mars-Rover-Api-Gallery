@@ -117,7 +117,6 @@ class SetUrl {
       img.setAttribute('data-camera', data.photos[i].camera.full_name);
       img.setAttribute('data-earth_date', data.photos[i].earth_date);
       img.setAttribute('data-sol', data.photos[i].sol);
-      //sol
       lastSec.querySelector('div').appendChild(img);
     }
     const imagesSlots = gallery.querySelectorAll('section');

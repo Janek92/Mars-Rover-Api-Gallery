@@ -57,7 +57,7 @@ body{
   }
   @content;
 }
-@mixin inputsSolDate($font:$montserrat, $color:#fff, $font-size:0.9*$font-text, $font-letters: uppercase, $margin-values:5px auto, $bgc-col:#000, $border-params:2px solid rgb(255, 128, 0), $border-rad:5px,$width: 40%, $line-height: 2*$font-text, $transition:0.15s){
+@mixin inputsSolDate($font:$montserrat, $color:#fff, $font-size:0.9*$font-text, $font-letters: uppercase, $margin-values:5px auto, $bgc-col:#000, $border-params:2px solid rgb(255, 128, 0), $border-rad:5px,$width: 40%, $height: 4*$font-text, $transition:0.15s){
   outline:none;
   font-family: $font;
   color: $color;
@@ -68,7 +68,7 @@ body{
   border: $border-params;
   border-radius:$border-rad;
   width: $width;
-  line-height: 4*$font-text;
+  height: $height;
   transition: $transition;
   @media ($small){
     font-size:$font-text;
