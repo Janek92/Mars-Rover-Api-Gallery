@@ -54,6 +54,7 @@ class SetUrl {
       return
     };
     this.searchBtnToSetPointed(e, this.choseRover);
+    document.querySelector('.gallery').textContent = '';
   }
   //display a table with sol or date on
   setDateOrSol(e) {
@@ -223,8 +224,9 @@ class Menu {
   //slide out burger icon with scroll on smaller devices
   hideBurgerIfScroll() {
     if (window.innerWidth >= 1024) return
-    if (this.opacityLevel > '40' && this.fa.classList.contains('fa-bars')) return;
-    if (this.opacityLevel >= '30') {
+    //Limit event occurance (commented because of problems while resize):
+    // if (this.opacityLevel > '40' && this.fa.classList.contains('fa-bars')) return;
+    if ((window.scrollY / window.innerHeight * 100) > 30) {
       this.nav.style.transform = 'translateY(-100%)';
       this.fa.classList.remove('fa-times');
       this.fa.classList.add('fa-bars');
@@ -283,18 +285,17 @@ class Menu {
   }
   //slide out menu with scroll on desktops
   menuForDesktops() {
-    if ((window.scrollY / window.innerHeight * 100) > 50) return;
+    //Limit event occurance (commented because of problems while resize):
+    // if ((window.scrollY / window.innerHeight * 100) > 50) return;
     if (window.innerWidth >= 1024) {
       if ((window.scrollY / window.innerHeight * 100) > 30) {
         this.nav.style.transform = 'translateY(0%)';
       } else if ((window.scrollY / window.innerHeight * 100) <= 30) {
         this.nav.style.transform = 'translateY(-100%)';
       }
-      console.log((window.scrollY / window.innerHeight * 100) > 30);
     }
   }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   new SetUrl();
   new Menu();

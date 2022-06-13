@@ -962,6 +962,7 @@ body {
 @media (min-width: 1024px) and (orientation: landscape) {
   .gallery section div img {
     cursor: pointer;
+    width: 20%;
   }
 }
 
