@@ -1,0 +1,28 @@
+.spinner{
+  display: none;
+  width:100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,.3);
+  .fa-spinner{
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    // transform-origin: center;
+    // transform: translate(-50%,-50%);
+    color:rgb(236, 145, 17);
+    font-size: 60px;
+    animation: spin 0.7s steps(8, end) infinite;
+  }
+}
+
+@keyframes spin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.visible{
+  display: block;
+}

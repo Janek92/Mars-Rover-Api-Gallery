@@ -16,7 +16,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: #000;
 }
 
@@ -36,10 +36,9 @@ body {
   left: 0%;
   background-color: rgba(0, 0, 0, 0.85);
 }
-
 .preview section {
   position: relative;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   text-transform: uppercase;
   font-size: 17.6px;
@@ -47,87 +46,73 @@ body {
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
-
 .preview section.--invisible {
   opacity: 0;
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .preview section {
     cursor: pointer;
   }
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .preview section {
     font-size: 19.2px;
   }
 }
-
 .preview section p {
   margin: 15px 5px;
   text-shadow: 0 0 7px #000;
 }
-
 .preview div {
   color: #fff;
   font-size: 56px;
   position: absolute;
   top: 80%;
   left: 0%;
-  opacity: .4;
-  -webkit-transition: .2s;
-  transition: .2s;
+  opacity: 0.4;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .preview div {
     font-size: 64px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .preview div:hover {
     opacity: 1;
   }
 }
-
 .preview .left-arrow {
   left: 0%;
   -webkit-transform: translateX(15%);
           transform: translateX(15%);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .preview .left-arrow {
     cursor: pointer;
   }
 }
-
 .preview .close {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .preview .close {
     cursor: pointer;
   }
 }
-
 .preview .right-arrow {
   left: 100%;
   -webkit-transform: translateX(-115%);
           transform: translateX(-115%);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .preview .right-arrow {
     cursor: pointer;
   }
 }
-
 .preview img {
   width: auto;
   max-width: 100%;
@@ -137,8 +122,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .preview img {
     left: 50%;
     max-width: 700px;
@@ -157,73 +141,62 @@ body {
   z-index: 2;
   background-color: rgba(35, 8, 0, 0.5);
   color: #fff;
-  -webkit-transition: .6s;
-  transition: .6s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .menu {
     background-color: rgba(35, 8, 0, 0.9);
   }
 }
-
 .menu__title {
   margin: 20px 10px;
   font-size: 24px;
   text-transform: uppercase;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .menu__title {
     font-size: 28px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .menu__title {
     display: none;
   }
 }
-
 .menu__list {
   list-style: none;
   margin: 20px 10px;
   font-size: 20.8px;
   text-transform: capitalize;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .menu__list {
     font-size: 22.4px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .menu__list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
 }
-
 .menu__list li {
   margin: 25px 10px;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .menu__list li {
     margin: 30px 15px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .menu__list li {
     margin: 0px 20px;
     width: auto;
     cursor: pointer;
   }
 }
-
 .menu__burger {
   width: 60px;
   height: 40px;
@@ -231,13 +204,11 @@ body {
   top: 100%;
   left: 0%;
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .menu__burger {
     display: none;
   }
 }
-
 .menu__burger .fa {
   text-shadow: 0 0 5px #000;
   position: absolute;
@@ -250,8 +221,7 @@ body {
   -webkit-transition: 0.35s;
   transition: 0.35s;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .menu__burger .fa {
     font-size: 48px;
   }
@@ -271,17 +241,15 @@ body {
   background-position: 75% 0%;
   text-align: center;
   font-family: "Chakra Petch", sans-serif;
-  color: #ffcaad;
+  color: rgb(255, 202, 173);
 }
-
-@media (min-width: 1200px) {
+@media (min-width:1200px) {
   .welcome {
     background-position: 20% 0%;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(233, 115, 37, 0.221))), url("../images/mars1_1920.jpg");
     background: linear-gradient(rgba(233, 115, 37, 0.221)), url("../images/mars1_1920.jpg");
   }
 }
-
 .welcome__title {
   font-size: 40px;
   text-transform: uppercase;
@@ -290,14 +258,12 @@ body {
   text-shadow: 0px 2px 10px #000000;
   font-weight: 700;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .welcome__title {
     font-size: 48px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .welcome__title {
     font-size: 60px;
   }
@@ -313,43 +279,36 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.856)), url("../images/mars2_1263.jpg");
   background-size: cover;
 }
-
 .introduction__text {
   text-transform: uppercase;
   line-height: 1.6;
 }
-
 .introduction__text strong:nth-last-of-type(2) {
   font-size: 17.6px;
-  color: #ec9111;
+  color: rgb(236, 145, 17);
   letter-spacing: 2px;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .introduction__text strong:nth-last-of-type(2) {
     font-size: 19.2px;
   }
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .introduction__text {
     font-size: 19.2px;
   }
 }
-
 .introduction h2 {
   font-size: 24px;
   text-transform: uppercase;
   padding: 12px 0;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .introduction h2 {
     font-size: 28px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .introduction h2 {
     font-size: 36px;
   }
@@ -367,43 +326,33 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
-
 .interface__chose-rover {
   width: 100%;
   text-align: center;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
-
 .interface__chose-rover h3 {
   position: relative;
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
   grid-column: 1/-1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
   grid-row: 1/2;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__chose-rover h3 {
     font-size: 24px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__chose-rover h3 {
     font-size: 32px;
   }
 }
-
 .interface__chose-rover button {
   outline: none;
   font-family: "Montserrat", sans-serif;
@@ -412,89 +361,65 @@ body {
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
-  border: 2px solid #ff8000;
+  border: 2px solid rgb(255, 128, 0);
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__chose-rover button {
     font-size: 16px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__chose-rover button {
     cursor: pointer;
     font-size: 19.2px;
   }
   .interface__chose-rover button:hover {
-    -webkit-box-shadow: 0 0 12px 4px #ff8000;
-            box-shadow: 0 0 12px 4px #ff8000;
+    -webkit-box-shadow: 0 0 12px 4px rgb(255, 128, 0);
+            box-shadow: 0 0 12px 4px rgb(255, 128, 0);
   }
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__chose-rover button {
     margin: 0 15px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__chose-rover button {
     margin: 0 50px;
   }
 }
-
 .interface__chose-rover button:focus {
-  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
-          box-shadow: inset 0 0 8px 2px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
+          box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__chose-rover button:focus {
-    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
-            box-shadow: inset 0 0 10px 3px #ff8000;
+    -webkit-box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
+            box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
   }
 }
-
 .interface__chose-rover button:active {
   border-width: 3px;
   font-size: 13.6px;
 }
-
 .interface__chose-rover .curiosity {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
   grid-column: 1/2;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .interface__chose-rover .opportunity {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-column: 2/3;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .interface__chose-rover .spirit {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
   grid-column: 3/4;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .interface__chose-rover .pointed {
   background-color: #333;
 }
-
 .interface__chose-rover h3::after {
   content: "";
   width: 50%;
@@ -504,42 +429,32 @@ body {
   top: 100%;
   left: 0;
 }
-
 .interface__date-type {
   width: 100%;
   text-align: center;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   display: none;
 }
-
 .interface__date-type h3 {
   position: relative;
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
   grid-column: 1/-1;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
   grid-row: 1/2;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__date-type h3 {
     font-size: 24px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-type h3 {
     font-size: 32px;
   }
 }
-
 .interface__date-type button {
   outline: none;
   font-family: "Montserrat", sans-serif;
@@ -548,80 +463,61 @@ body {
   text-transform: uppercase;
   margin: 5px 1px;
   background-color: #000;
-  border: 2px solid #ff8000;
+  border: 2px solid rgb(255, 128, 0);
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__date-type button {
     font-size: 16px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-type button {
     cursor: pointer;
     font-size: 19.2px;
   }
   .interface__date-type button:hover {
-    -webkit-box-shadow: 0 0 12px 4px #ff8000;
-            box-shadow: 0 0 12px 4px #ff8000;
+    -webkit-box-shadow: 0 0 12px 4px rgb(255, 128, 0);
+            box-shadow: 0 0 12px 4px rgb(255, 128, 0);
   }
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__date-type button {
     margin: 0 30px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-type button {
     margin: 0 70px;
   }
 }
-
 .interface__date-type button:focus {
-  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
-          box-shadow: inset 0 0 8px 2px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
+          box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-type button:focus {
-    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
-            box-shadow: inset 0 0 10px 3px #ff8000;
+    -webkit-box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
+            box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
   }
 }
-
 .interface__date-type button:active {
   border-width: 3px;
   font-size: 13.6px;
 }
-
 .interface__date-type .earth_date {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
   grid-column: 1/2;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .interface__date-type .sol {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-column: 2/3;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .interface__date-type .pointed {
   background-color: #333;
 }
-
 .interface__date-type h3::after {
   content: "";
   width: 75%;
@@ -631,32 +527,27 @@ body {
   top: 100%;
   left: 0;
 }
-
 .interface__date-format {
   width: 100%;
   text-align: center;
   display: none;
 }
-
 .interface__date-format h3 {
   position: relative;
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__date-format h3 {
     font-size: 24px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-format h3 {
     font-size: 32px;
   }
 }
-
 .interface__date-format h3::after {
   content: "";
   width: 100%;
@@ -666,7 +557,6 @@ body {
   top: 100%;
   left: 0;
 }
-
 .interface__date-format input {
   outline: none;
   font-family: "Montserrat", sans-serif;
@@ -675,7 +565,7 @@ body {
   text-transform: uppercase;
   margin: 5px auto;
   background-color: #000;
-  border: 2px solid #ff8000;
+  border: 2px solid rgb(255, 128, 0);
   border-radius: 5px;
   width: 40%;
   height: 64px;
@@ -684,68 +574,58 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__date-format input {
     font-size: 16px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-format input {
     cursor: pointer;
     width: 20%;
     font-size: 19.2px;
   }
   .interface__date-format input:hover {
-    -webkit-box-shadow: 0 0 12px 4px #ff8000;
-            box-shadow: 0 0 12px 4px #ff8000;
+    -webkit-box-shadow: 0 0 12px 4px rgb(255, 128, 0);
+            box-shadow: 0 0 12px 4px rgb(255, 128, 0);
   }
 }
-
 .interface__date-format input::-webkit-calendar-picker-indicator {
   font-size: 19.2px;
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
-
 .interface__date-format input:focus {
-  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
-          box-shadow: inset 0 0 8px 2px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
+          box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__date-format input:focus {
-    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
-            box-shadow: inset 0 0 10px 3px #ff8000;
+    -webkit-box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
+            box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
   }
 }
-
 .interface__sol-format {
   width: 100%;
   text-align: center;
   display: none;
 }
-
 .interface__sol-format h3 {
   position: relative;
   font-size: 20px;
   text-transform: uppercase;
   margin: 15px 0;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .interface__sol-format h3 {
     font-size: 24px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__sol-format h3 {
     font-size: 32px;
   }
 }
-
 .interface__sol-format h3::after {
   content: "";
   width: 100%;
@@ -755,8 +635,7 @@ body {
   top: 100%;
   left: 0;
 }
-
-.interface__sol-format input[type="number"] {
+.interface__sol-format input[type=number] {
   outline: none;
   font-family: "Montserrat", sans-serif;
   color: #fff;
@@ -764,7 +643,7 @@ body {
   text-transform: uppercase;
   margin: 5px auto;
   background-color: #000;
-  border: 2px solid #ff8000;
+  border: 2px solid rgb(255, 128, 0);
   border-radius: 5px;
   width: 40%;
   height: 64px;
@@ -773,26 +652,23 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
-
-@media (min-width: 500px) {
-  .interface__sol-format input[type="number"] {
+@media (min-width:500px) {
+  .interface__sol-format input[type=number] {
     font-size: 16px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
-  .interface__sol-format input[type="number"] {
+@media (min-width:1024px) and (orientation: landscape) {
+  .interface__sol-format input[type=number] {
     cursor: pointer;
     width: 20%;
     font-size: 19.2px;
   }
-  .interface__sol-format input[type="number"]:hover {
-    -webkit-box-shadow: 0 0 12px 4px #ff8000;
-            box-shadow: 0 0 12px 4px #ff8000;
+  .interface__sol-format input[type=number]:hover {
+    -webkit-box-shadow: 0 0 12px 4px rgb(255, 128, 0);
+            box-shadow: 0 0 12px 4px rgb(255, 128, 0);
   }
 }
-
-.interface__sol-format input[type="submit"] {
+.interface__sol-format input[type=submit] {
   outline: none;
   font-family: "Montserrat", sans-serif;
   color: #fff;
@@ -800,63 +676,60 @@ body {
   text-transform: uppercase;
   margin: 5px auto;
   background-color: #000;
-  border: 2px solid #ff8000;
+  border: 2px solid rgb(255, 128, 0);
   border-radius: 5px;
   width: 40%;
   height: 64px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
 }
-
-@media (min-width: 500px) {
-  .interface__sol-format input[type="submit"] {
+@media (min-width:500px) {
+  .interface__sol-format input[type=submit] {
     font-size: 16px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
-  .interface__sol-format input[type="submit"] {
+@media (min-width:1024px) and (orientation: landscape) {
+  .interface__sol-format input[type=submit] {
     cursor: pointer;
     width: 20%;
     font-size: 19.2px;
   }
-  .interface__sol-format input[type="submit"]:hover {
-    -webkit-box-shadow: 0 0 12px 4px #ff8000;
-            box-shadow: 0 0 12px 4px #ff8000;
+  .interface__sol-format input[type=submit]:hover {
+    -webkit-box-shadow: 0 0 12px 4px rgb(255, 128, 0);
+            box-shadow: 0 0 12px 4px rgb(255, 128, 0);
   }
 }
-
 .interface__sol-format input:focus {
-  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
-          box-shadow: inset 0 0 8px 2px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
+          box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .interface__sol-format input:focus {
-    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
-            box-shadow: inset 0 0 10px 3px #ff8000;
+    -webkit-box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
+            box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
   }
 }
-
 .interface__sol-format input:focus::-webkit-input-placeholder {
   -webkit-transition: 0.35s;
   transition: 0.35s;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
-
+.interface__sol-format input:focus::-moz-placeholder {
+  -moz-transition: 0.35s;
+  transition: 0.35s;
+  transform: scale(0);
+}
 .interface__sol-format input:focus:-ms-input-placeholder {
-  -webkit-transition: 0.35s;
+  -ms-transition: 0.35s;
   transition: 0.35s;
   transform: scale(0);
 }
-
 .interface__sol-format input:focus::-ms-input-placeholder {
-  -webkit-transition: 0.35s;
+  -ms-transition: 0.35s;
   transition: 0.35s;
   transform: scale(0);
 }
-
 .interface__sol-format input:focus::placeholder {
   -webkit-transition: 0.35s;
   transition: 0.35s;
@@ -875,9 +748,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
-
 .gallery section {
   width: 100%;
   overflow-y: hidden;
@@ -886,7 +758,6 @@ body {
   margin-top: 10px;
   border-radius: 3px;
 }
-
 .gallery section button {
   outline: none;
   font-family: "Montserrat", sans-serif;
@@ -894,53 +765,46 @@ body {
   font-size: 14.4px;
   text-transform: uppercase;
   background-color: #000;
-  border: 2px solid #ff8000;
+  border: 2px solid rgb(255, 128, 0);
   border-radius: 5px;
   -webkit-transition: 0.15s;
   transition: 0.15s;
   width: 100%;
   line-height: 40px;
 }
-
-@media (min-width: 500px) {
+@media (min-width:500px) {
   .gallery section button {
     font-size: 16px;
   }
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .gallery section button {
     cursor: pointer;
     font-size: 19.2px;
   }
   .gallery section button:hover {
-    -webkit-box-shadow: 0 0 12px 4px #ff8000;
-            box-shadow: 0 0 12px 4px #ff8000;
+    -webkit-box-shadow: 0 0 12px 4px rgb(255, 128, 0);
+            box-shadow: 0 0 12px 4px rgb(255, 128, 0);
   }
 }
-
 .gallery section button:hover {
-  -webkit-box-shadow: inset 0 0 12px 4px #ff8000;
-          box-shadow: inset 0 0 12px 4px #ff8000;
+  -webkit-box-shadow: inset 0 0 12px 4px rgb(255, 128, 0);
+          box-shadow: inset 0 0 12px 4px rgb(255, 128, 0);
 }
-
 .gallery section button:focus {
-  -webkit-box-shadow: inset 0 0 8px 2px #ff8000;
-          box-shadow: inset 0 0 8px 2px #ff8000;
+  -webkit-box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
+          box-shadow: inset 0 0 8px 2px rgb(255, 128, 0);
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .gallery section button:focus {
-    -webkit-box-shadow: inset 0 0 10px 3px #ff8000;
-            box-shadow: inset 0 0 10px 3px #ff8000;
+    -webkit-box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
+            box-shadow: inset 0 0 10px 3px rgb(255, 128, 0);
   }
 }
-
 .gallery section button:active {
   border-width: 3px;
   font-size: 15.2px;
 }
-
 .gallery section div {
   background-color: #000;
   display: -webkit-box;
@@ -954,12 +818,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-
 .gallery section div img {
   width: 25%;
 }
-
-@media (min-width: 1024px) and (orientation: landscape) {
+@media (min-width:1024px) and (orientation: landscape) {
   .gallery section div img {
     cursor: pointer;
     width: 20%;
@@ -972,51 +834,30 @@ body {
   margin-top: 20px;
   padding: 15px 10px;
   border-top: 2px solid #fff;
-  background-color: black;
-  display: -ms-grid;
+  background-color: rgb(0, 0, 0);
   display: grid;
-  -ms-grid-columns: auto auto 1fr;
-      grid-template-columns: auto auto 1fr;
-  -ms-grid-rows: auto auto auto;
-      grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto auto auto;
 }
-
 .about div {
   text-align: center;
 }
-
 .about div .fa {
   font-size: 25.6px;
   margin: 5px;
 }
-
 .about .about__github {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
   grid-column: 1/2;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
   grid-row: 1/2;
 }
-
 .about .about__location {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
   grid-column: 1/2;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .about .about__source {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
   grid-column: 1/2;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
   grid-row: 3/4;
 }
-
 .about a {
   text-decoration: none;
   color: #fff;
@@ -1024,34 +865,61 @@ body {
   font-size: 12.8px;
   font-weight: 200;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
 }
-
 .about .github {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-column: 2/3;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
   grid-row: 1/2;
 }
-
 .about .homeplace {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-column: 2/3;
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
   grid-row: 2/3;
 }
-
 .about .source {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
   grid-column: 2/3;
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
   grid-row: 3/4;
 }
-/*# sourceMappingURL=style.css.map */
+
+.spinner {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.spinner .fa-spinner {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  color: rgb(236, 145, 17);
+  font-size: 60px;
+  -webkit-animation: spin 0.7s steps(8, end) infinite;
+          animation: spin 0.7s steps(8, end) infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.visible {
+  display: block;
+}/*# sourceMappingURL=style.css.map */

@@ -16,6 +16,13 @@ class SetUrl {
       "submit",
       this.generateUrlByDateType.bind(this)
     );
+    this.spinner = document.querySelector(".spinner");
+  }
+  spinnerOn() {
+    this.spinner.classList.add("visible");
+  }
+  spinnerOff() {
+    this.spinner.classList.remove("visible");
   }
   //method to use in generateManifests for date and sol values and chose type of date section on
   valuesForRovers(rover, minDate, maxDate, maxSol) {
@@ -45,6 +52,7 @@ class SetUrl {
         alert("Niepowodzenie podczas pobierania API : " + error)
       );
     await this.smoothScroll(this.dateType);
+    this.spinnerOff();
   }
   //a method for adding button pointed class
   searchBtnToSetPointed(e, section) {
@@ -63,6 +71,7 @@ class SetUrl {
   }
   //generate inputs date and sol values based on chosen rover - used async method because of time for api connection
   async setValues(e) {
+    this.spinnerOn();
     if (e.target.textContent === "curiosity") {
       this.generateManifests("curiosity");
     } else if (e.target.textContent === "opportunity") {
@@ -105,6 +114,7 @@ class SetUrl {
   }
   //fetch api
   downloadPics(urlPhotos) {
+    this.spinnerOn();
     fetch(urlPhotos)
       .then((response) => response.json())
       .then((res) => this.showImages(res))
@@ -114,6 +124,7 @@ class SetUrl {
   }
   //create gallery method
   showImages(data) {
+    this.spinnerOff();
     const gallery = document.querySelector(".gallery");
     let value = 0;
     let lastSec;
