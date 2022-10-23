@@ -283,13 +283,18 @@ body {
   text-transform: uppercase;
   line-height: 1.6;
 }
-.introduction__text strong:nth-last-of-type(2) {
+.introduction__text .tight {
+  font-style: normal;
+  font-weight: 700;
+  color: #fff;
+}
+.introduction__text .hint {
   font-size: 17.6px;
   color: rgb(236, 145, 17);
   letter-spacing: 2px;
 }
 @media (min-width:500px) {
-  .introduction__text strong:nth-last-of-type(2) {
+  .introduction__text .hint {
     font-size: 19.2px;
   }
 }

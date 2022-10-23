@@ -79,6 +79,7 @@ class SetUrl {
     } else if (e.target.textContent === "spirit") {
       this.generateManifests("spirit");
     } else {
+      this.spinnerOff();
       return;
     }
     this.searchBtnToSetPointed(e, this.choseRover);
@@ -247,7 +248,6 @@ class Menu {
   constructor() {
     this.header = document.querySelector(".welcome");
     this.wrapper = document.querySelector(".wrapper");
-    // this.opacityLevel;
     this.introduction = document.querySelector(".introduction");
     this.interface = document.querySelector(".interface");
     this.footer = document.querySelector(".about");
@@ -270,7 +270,7 @@ class Menu {
   //slide out burger icon with scroll on smaller devices
   hideBurgerIfScroll() {
     if (window.innerWidth >= 1024) return;
-    //Limit event occurance (commented because of problems while resize):
+    //Limit event occurance (commented in order of problems while resize):
     // if (this.opacityLevel > '40' && this.fa.classList.contains('fa-bars')) return;
     if ((window.scrollY / window.innerHeight) * 100 > 30) {
       this.nav.style.transform = "translateY(-100%)";
@@ -338,7 +338,7 @@ class Menu {
   }
   //slide out menu with scroll on desktops
   menuForDesktops() {
-    //Limit event occurance (commented because of problems while resize):
+    //Limit event occurance (commented in order of problems while resize):
     // if ((window.scrollY / window.innerHeight * 100) > 50) return;
     if (window.innerWidth >= 1024) {
       if ((window.scrollY / window.innerHeight) * 100 > 30) {
