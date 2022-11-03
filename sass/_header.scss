@@ -20,6 +20,7 @@ color: rgb(255, 202, 173);
   font-size: $font-titles;
   text-transform: uppercase;
   position: relative;
+  user-select: none;
   top: 25%;
   text-shadow: 0px 2px 10px #000000;
   font-weight: 700;

@@ -334,6 +334,20 @@ class Menu {
       this.menuScroll(this.interface);
     } else if (e.target.innerText === "About") {
       this.menuScroll(this.footer);
+    } else if (e.target.classList.contains("fa-share-alt")) {
+      const title = window.document.title;
+      const href = window.document.location.href;
+      if (navigator.share) {
+        navigator
+          .share({
+            title: `${title}`,
+            url: `${href}`,
+          })
+          .then(() => {
+            console.log("Share completed");
+          })
+          .catch(console.error);
+      }
     }
   }
   //slide out menu with scroll on desktops
