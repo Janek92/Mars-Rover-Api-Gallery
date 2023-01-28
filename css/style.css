@@ -183,11 +183,11 @@ body {
   }
 }
 .menu__list li {
-  margin: 25px 10px;
+  margin: 15px 10px;
 }
 @media (min-width:500px) {
   .menu__list li {
-    margin: 30px 15px;
+    margin: 20px 15px;
   }
 }
 @media (min-width:1024px) and (orientation: landscape) {

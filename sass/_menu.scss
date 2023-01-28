@@ -34,9 +34,9 @@
       display: flex;
     }
     li{
-      margin: 25px 10px;
+      margin: 15px 10px;
       @media ($small){
-        margin: 30px 15px;
+        margin: 20px 15px;
       }
       @media ($large) and (orientation: landscape){
         margin: 0px 20px;

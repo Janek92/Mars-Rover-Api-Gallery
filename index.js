@@ -39,7 +39,15 @@ class SetUrl {
     await fetch(
       `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}/?api_key=dlMqkVNwg4kVXWabBfXGrkndVVfCGm6lagFF8gbj`
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(
+            "There was a problem with the connection. Reload the page"
+          );
+        } else {
+          return response.json();
+        }
+      })
       .then((res) =>
         this.valuesForRovers(
           rover,
@@ -48,9 +56,7 @@ class SetUrl {
           res.photo_manifest.max_sol
         )
       )
-      .catch((error) =>
-        alert("Niepowodzenie podczas pobierania API : " + error)
-      );
+      .catch((error) => alert(error));
     await this.smoothScroll(this.dateType);
     this.spinnerOff();
   }
@@ -117,11 +123,17 @@ class SetUrl {
   downloadPics(urlPhotos) {
     this.spinnerOn();
     fetch(urlPhotos)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error(
+            "There was a problem with the connection. Reload the page"
+          );
+        } else {
+          return response.json();
+        }
+      })
       .then((res) => this.showImages(res))
-      .catch((error) =>
-        alert("Niepowodzenie podczas pobierania API : " + error)
-      );
+      .catch((error) => alert(error));
   }
   //create gallery method
   showImages(data) {
@@ -343,16 +355,13 @@ class Menu {
             title: `${title}`,
             url: `${href}`,
           })
-          .then(() => {
-            console.log("Share completed");
-          })
-          .catch(console.error);
+          .catch((error) => alert(error));
       }
     }
   }
   //slide out menu with scroll on desktops
   menuForDesktops() {
-    //Limit event occurance (commented in order of problems while resize):
+    //Limit event occurance (commented due to problems while resize):
     // if ((window.scrollY / window.innerHeight * 100) > 50) return;
     if (window.innerWidth >= 1024) {
       if ((window.scrollY / window.innerHeight) * 100 > 30) {
