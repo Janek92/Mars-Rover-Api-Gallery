@@ -17,6 +17,7 @@ class SetUrl {
       this.generateUrlByDateType.bind(this)
     );
     this.spinner = document.querySelector(".spinner");
+    this.apiKey = "your api key";
   }
   spinnerOn() {
     this.spinner.classList.add("visible");
@@ -37,7 +38,7 @@ class SetUrl {
   //async method to use in setValues
   async generateManifests(rover) {
     await fetch(
-      `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}/?api_key=dlMqkVNwg4kVXWabBfXGrkndVVfCGm6lagFF8gbj`
+      `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}/?api_key=${this.apiKey}`
     )
       .then((response) => {
         if (response.status !== 200) {
@@ -112,10 +113,10 @@ class SetUrl {
   //generate api link on the sol or date based
   generateUrlByDateType(e, url) {
     if (e.target.name === "date") {
-      url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.rover}/photos?earth_date=${e.target.value}&api_key=dlMqkVNwg4kVXWabBfXGrkndVVfCGm6lagFF8gbj`;
+      url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.rover}/photos?earth_date=${e.target.value}&api_key=${this.apiKey}`;
     } else {
       e.preventDefault();
-      url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.rover}/photos?sol=${this.solValue.value}&api_key=dlMqkVNwg4kVXWabBfXGrkndVVfCGm6lagFF8gbj`;
+      url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${this.rover}/photos?sol=${this.solValue.value}&api_key=${this.apiKey}`;
     }
     this.downloadPics(url);
   }
@@ -345,8 +346,12 @@ class Menu {
     } else if (e.target.innerText === "Interface") {
       this.menuScroll(this.interface);
     } else if (e.target.innerText === "About") {
+      console.log(e.target);
       this.menuScroll(this.footer);
-    } else if (e.target.classList.contains("fa-share-alt")) {
+    } else if (
+      e.target.classList.contains("fa-share-alt") ||
+      e.target.innerText.includes("Share")
+    ) {
       const title = window.document.title;
       const href = window.document.location.href;
       if (navigator.share) {
@@ -355,7 +360,7 @@ class Menu {
             title: `${title}`,
             url: `${href}`,
           })
-          .catch((error) => alert(error));
+          .catch((error) => console.error(error));
       }
     }
   }

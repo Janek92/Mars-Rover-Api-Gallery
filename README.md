@@ -4,14 +4,14 @@
 
 Small website that uses NASA api with pictures of three mars rovers. I made it as my first project. The subject was selected according to my personal hobbies.
 
-https://janek92.github.io/Mars-Rover-Api-Gallery/
+https://www.marsredplanetgallery.com/
 
 ## Technologies
 
-![HTML](./images/icons/html.png)
-![CSS](./images/icons/css.png)
-![SCSS](./images/icons/sass.png)
-![JS](./images/icons/js.png)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SCSS](https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
 ## How it works
 
@@ -25,10 +25,26 @@ To manage the project just clone the repository:
 git clone https://github.com/Janek92/Mars-Rover-Api-Gallery.git
 ```
 
-You don't have to install because it is not created as npm project but it uses sass files so you need Live Sass Compiler. So if you want to change styles in VSCode Editor press `ctrl+P` and type
+Take your api key in https://api.nasa.gov/ and assign it in `index.js` to `this.apiKey`.
+
+You don't have to install it because it is not created as npm project but it uses sass files so in order to change styles you need Live Sass Compiler. If you are using VSC press `ctrl+P` and type
 
 ```
+
 ext install glenn2223.live-sass
+
 ```
 
-or download it via extension installer.
+or download it via extension installer. In your settings.json type the following block of code:
+
+```
+
+"liveSassCompile.settings.formats": [
+{
+"format": "expanded",
+"extensionName": ".css",
+"savePath": "~/../css/"
+}
+],
+
+```
